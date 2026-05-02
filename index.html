@@ -1,0 +1,1985 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Copa do Mundo 2026 — Revista Digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@300;400;500;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<script id="dados-injetados">
+/* ============================================================
+   DADOS GERADOS PELO ADMIN — não edite manualmente
+   Use o admin.html e clique "Gerar index.html para GitHub"
+   ============================================================ */
+const CLIENTE      = {"nome":"Bar do Zé","slogan":"O melhor lugar para assistir a Copa!","logoUrl":"","corPrimaria":""};
+const DADOS_GRUPOS = {};
+const TEXTOS       = {};
+const CORES        = {};
+/* ============================================================ */
+
+// Aplica cores imediatamente
+if(CORES.verde)   document.documentElement.style.setProperty('--verde',  CORES.verde);
+if(CORES.amarelo) document.documentElement.style.setProperty('--amarelo',CORES.amarelo);
+if(CORES.azul)    document.documentElement.style.setProperty('--azul',   CORES.azul);
+if(CORES.fundo)   document.documentElement.style.setProperty('--preto',  CORES.fundo);
+</script>
+<style>
+  :root {
+    --verde: #009c3b;
+    --amarelo: #ffdf00;
+    --azul: #002776;
+    --vermelho: #d00000;
+    --dourado: #c9a227;
+    --preto: #0a0a0a;
+    --branco: #f5f0e8;
+    --cinza-escuro: #1a1a1a;
+    --cinza-medio: #2d2d2d;
+    --cinza-claro: #3d3d3d;
+    --texto: #e8e0d0;
+    --texto-suave: #a0968a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--preto);
+    color: var(--texto);
+    font-family: 'Source Serif 4', Georgia, serif;
+    overflow-x: hidden;
+  }
+
+  /* ── NAVEGAÇÃO ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: rgba(10,10,10,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 2px solid var(--amarelo);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    height: 58px;
+  }
+
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    color: var(--amarelo);
+    letter-spacing: 2px;
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--verde); }
+
+  .nav-links {
+    display: flex;
+    gap: 0;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+    text-decoration: none;
+    padding: 0 1rem;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+  }
+
+  .nav-links a:hover {
+    color: var(--amarelo);
+    border-bottom-color: var(--amarelo);
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--amarelo);
+    transition: all 0.3s;
+  }
+
+  /* ── HERO ── */
+  #inicio {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #000 0%, #001a0a 40%, #00050f 100%);
+    padding-top: 58px;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 50%, rgba(0,156,59,0.12) 0%, transparent 50%),
+      radial-gradient(circle at 80% 30%, rgba(255,223,0,0.08) 0%, transparent 50%),
+      radial-gradient(circle at 50% 80%, rgba(0,39,118,0.15) 0%, transparent 50%);
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,223,0,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,223,0,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-content {
+    position: relative;
+    text-align: center;
+    padding: 2rem;
+    max-width: 900px;
+  }
+
+  .hero-tag {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--verde);
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    border: 1px solid var(--verde);
+    padding: 4px 16px;
+    animation: fadeIn 1s ease forwards;
+  }
+
+  .hero-titulo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 15vw, 12rem);
+    line-height: 0.85;
+    color: var(--branco);
+    animation: slideUp 1s ease 0.2s both;
+  }
+
+  .hero-titulo .destaque {
+    color: var(--amarelo);
+    display: block;
+  }
+
+  .hero-titulo .ano {
+    color: var(--verde);
+    font-size: 0.55em;
+    display: block;
+    letter-spacing: 8px;
+  }
+
+  .hero-sub {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--texto-suave);
+    margin: 2rem 0;
+    animation: fadeIn 1s ease 0.6s both;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    margin: 2.5rem 0;
+    animation: fadeIn 1s ease 0.8s both;
+  }
+
+  .hero-stat { text-align: center; }
+
+  .hero-stat .num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.8rem;
+    color: var(--amarelo);
+    display: block;
+    line-height: 1;
+  }
+
+  .hero-stat .lab {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+    margin-top: 4px;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    animation: fadeIn 1s ease 1s both;
+  }
+
+  .btn-primary {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 14px 32px;
+    background: var(--amarelo);
+    color: var(--preto);
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-primary:hover {
+    background: var(--verde);
+    color: var(--branco);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 400;
+    padding: 14px 32px;
+    background: transparent;
+    color: var(--branco);
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.3);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--amarelo);
+    color: var(--amarelo);
+    transform: translateY(-2px);
+  }
+
+  /* ── SEÇÕES GERAIS ── */
+  section {
+    padding: 6rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-full {
+    max-width: 100%;
+    padding: 6rem 0;
+  }
+
+  .section-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--verde);
+    margin-bottom: 0.5rem;
+  }
+
+  .section-titulo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1;
+    color: var(--branco);
+    margin-bottom: 3rem;
+  }
+
+  .section-titulo span { color: var(--amarelo); }
+
+  .divider {
+    width: 60px;
+    height: 3px;
+    background: var(--amarelo);
+    margin: 1rem 0 3rem;
+  }
+
+  /* ── SEDES ── */
+  #sedes { background: var(--preto); }
+
+  .sedes-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+    margin-bottom: 4rem;
+  }
+
+  .sede-destaque {
+    background: linear-gradient(135deg, var(--azul) 0%, #001040 100%);
+    border: 1px solid rgba(255,223,0,0.2);
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .sede-destaque::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,223,0,0.06) 0%, transparent 70%);
+  }
+
+  .bandeira-grande {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+  }
+
+  .pais-nome {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    color: var(--amarelo);
+    margin-bottom: 0.25rem;
+  }
+
+  .pais-info {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.8rem;
+    color: var(--texto-suave);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .pais-desc {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--texto);
+    margin-top: 1rem;
+  }
+
+  .pais-stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .pais-stat-item {
+    background: rgba(0,0,0,0.3);
+    padding: 0.75rem;
+    text-align: center;
+  }
+
+  .pais-stat-item .v {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    color: var(--amarelo);
+    display: block;
+  }
+
+  .pais-stat-item .k {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+  }
+
+  .sedes-tres {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+  }
+
+  .estadios-lista h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--amarelo);
+    border-bottom: 1px solid rgba(255,223,0,0.2);
+    padding-bottom: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .estadio-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .estadio-nome {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.9rem;
+    color: var(--branco);
+  }
+
+  .estadio-cidade {
+    font-size: 0.78rem;
+    color: var(--texto-suave);
+  }
+
+  .estadio-jogos {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    color: var(--verde);
+    white-space: nowrap;
+  }
+
+  /* ── GRUPOS ── */
+  #grupos {
+    background: linear-gradient(180deg, var(--preto) 0%, var(--cinza-escuro) 100%);
+  }
+
+  .grupos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .grupo-card {
+    background: var(--cinza-escuro);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 1.25rem;
+    transition: all 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .grupo-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--verde);
+  }
+
+  .grupo-card.destaque::before { background: var(--amarelo); }
+  .grupo-card.destaque { border-color: rgba(255,223,0,0.2); }
+
+  .grupo-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255,223,0,0.3);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+  }
+
+  .grupo-letra {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem;
+    color: rgba(255,255,255,0.06);
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    line-height: 1;
+  }
+
+  .grupo-titulo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--verde);
+    margin-bottom: 1rem;
+  }
+
+  .grupo-card.destaque .grupo-titulo { color: var(--amarelo); }
+
+  .grupo-selecoes { list-style: none; }
+
+  .grupo-selecoes li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.9rem;
+    color: var(--texto);
+  }
+
+  .grupo-selecoes li:last-child { border-bottom: none; }
+
+  .grupo-selecoes li .flag { font-size: 1.2rem; }
+
+  .grupo-selecoes li.cabeça {
+    color: var(--amarelo);
+    font-weight: 500;
+  }
+
+  /* ── SELEÇÕES ESPECIAIS ── */
+  #selecoes { background: var(--cinza-escuro); }
+
+  .selecoes-tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 3rem;
+    border-bottom: 2px solid rgba(255,255,255,0.1);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .selecoes-tabs::-webkit-scrollbar { display: none; }
+
+  .tab-btn {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 1rem 1.5rem;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: var(--texto-suave);
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+    margin-bottom: -2px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .tab-btn:hover { color: var(--branco); }
+
+  .tab-btn.active {
+    color: var(--amarelo);
+    border-bottom-color: var(--amarelo);
+  }
+
+  .tab-conteudo { display: none; }
+  .tab-conteudo.active { display: block; }
+
+  .selecao-layout {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .selecao-card-lateral {
+    background: var(--cinza-medio);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 2rem;
+    position: sticky;
+    top: 80px;
+  }
+
+  .selecao-bandeira { font-size: 5rem; margin-bottom: 1rem; }
+
+  .selecao-pais {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.2rem;
+    color: var(--branco);
+    line-height: 1;
+  }
+
+  .selecao-apelido {
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--texto-suave);
+    margin: 0.25rem 0 1.5rem;
+  }
+
+  .selecao-meta { margin-bottom: 0.75rem; }
+
+  .selecao-meta .mk {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .selecao-meta .mv {
+    font-size: 0.95rem;
+    color: var(--texto);
+  }
+
+  .selecao-conquistas {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .conquistas-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--dourado);
+    margin-bottom: 0.75rem;
+  }
+
+  .copas-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .copa-ano {
+    background: rgba(201,162,39,0.15);
+    border: 1px solid rgba(201,162,39,0.3);
+    color: var(--dourado);
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.75rem;
+    padding: 3px 8px;
+  }
+
+  .selecao-conteudo h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.2rem;
+    color: var(--amarelo);
+    margin-bottom: 1rem;
+    line-height: 1;
+  }
+
+  .selecao-conteudo p {
+    font-size: 0.98rem;
+    line-height: 1.85;
+    color: var(--texto);
+    margin-bottom: 1.5rem;
+  }
+
+  .jogadores-titulo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--verde);
+    margin: 2.5rem 0 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .jogadores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .jogador-card {
+    background: var(--preto);
+    border: 1px solid rgba(255,255,255,0.07);
+    padding: 1rem;
+    transition: all 0.2s;
+  }
+
+  .jogador-card:hover {
+    border-color: rgba(255,223,0,0.3);
+    transform: translateY(-2px);
+  }
+
+  .jogador-numero {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    color: rgba(255,255,255,0.08);
+    float: right;
+    line-height: 1;
+  }
+
+  .jogador-nome {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--branco);
+    margin-bottom: 2px;
+  }
+
+  .jogador-pos {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--verde);
+    margin-bottom: 4px;
+  }
+
+  .jogador-clube {
+    font-size: 0.78rem;
+    color: var(--texto-suave);
+  }
+
+  .jogador-destaque .jogador-pos { color: var(--amarelo); }
+  .jogador-destaque { border-color: rgba(255,223,0,0.15); }
+
+  /* ── CONTINENTES ── */
+  #continentes { background: var(--preto); }
+
+  .continentes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+
+  .continente-bloco {
+    background: var(--cinza-escuro);
+    border: 1px solid rgba(255,255,255,0.07);
+    overflow: hidden;
+  }
+
+  .continente-header {
+    padding: 1.25rem 1.5rem;
+    background: rgba(0,0,0,0.3);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .continente-icone { font-size: 1.8rem; }
+
+  .continente-nome {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--branco);
+  }
+
+  .continente-vagas {
+    margin-left: auto;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.3rem;
+    color: var(--amarelo);
+  }
+
+  .continente-selecoes {
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .sel-pill {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.5px;
+    padding: 4px 10px;
+    border: 1px solid rgba(255,255,255,0.12);
+    color: var(--texto);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.2s;
+  }
+
+  .sel-pill:hover {
+    border-color: var(--verde);
+    color: var(--verde);
+  }
+
+  /* ── INFORMAÇÕES GERAIS ── */
+  #informacoes { background: var(--cinza-escuro); }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .info-bloco h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--amarelo);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(255,223,0,0.2);
+  }
+
+  .timeline { list-style: none; }
+
+  .timeline li {
+    display: flex;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    align-items: flex-start;
+  }
+
+  .timeline li:last-child { border-bottom: none; }
+
+  .tl-data {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.8rem;
+    color: var(--verde);
+    min-width: 100px;
+    padding-top: 2px;
+  }
+
+  .tl-evento {
+    font-size: 0.88rem;
+    color: var(--texto);
+    line-height: 1.5;
+  }
+
+  .tl-evento strong {
+    color: var(--branco);
+    display: block;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    font-size: 0.9rem;
+  }
+
+  .formato-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .formato-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    color: var(--amarelo);
+    line-height: 1;
+    min-width: 60px;
+  }
+
+  .formato-desc {
+    font-size: 0.88rem;
+    color: var(--texto);
+    line-height: 1.5;
+  }
+
+  .formato-desc strong {
+    color: var(--branco);
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  /* ── RODAPÉ ── */
+  footer {
+    background: var(--preto);
+    border-top: 2px solid var(--verde);
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    color: var(--amarelo);
+    letter-spacing: 3px;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-logo span { color: var(--verde); }
+
+  .footer-sub {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+    margin-bottom: 2rem;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+    margin-bottom: 2rem;
+  }
+
+  .footer-links a {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--amarelo); }
+
+  .footer-copy {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.2);
+    font-style: italic;
+  }
+
+  /* ── ANIMAÇÕES ── */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVO ── */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .nav-links.open {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 58px;
+      left: 0; right: 0;
+      background: rgba(10,10,10,0.98);
+      padding: 1rem 0;
+      border-bottom: 2px solid var(--amarelo);
+    }
+    .nav-links.open a { height: 48px; padding: 0 2rem; }
+
+    .hero-stats { gap: 1.5rem; }
+    .hero-cta { flex-direction: column; align-items: center; }
+
+    .sedes-intro { grid-template-columns: 1fr; gap: 2rem; }
+    .sedes-tres { grid-template-columns: 1fr; }
+    .selecao-layout { grid-template-columns: 1fr; }
+    .selecao-card-lateral { position: static; }
+    .info-grid { grid-template-columns: 1fr; }
+
+    section { padding: 4rem 1.25rem; }
+    .grupos-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 480px) {
+    .grupos-grid { grid-template-columns: 1fr; }
+    .selecoes-tabs { gap: 0; }
+    .tab-btn { padding: 0.75rem 0.75rem; font-size: 0.7rem; }
+  }
+
+  /* ── FAIXA TICKER ── */
+  .ticker-wrap {
+    background: var(--amarelo);
+    overflow: hidden;
+    padding: 0.5rem 0;
+  }
+
+  .ticker {
+    display: flex;
+    gap: 4rem;
+    animation: ticker 30s linear infinite;
+    white-space: nowrap;
+  }
+
+  .ticker-item {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--preto);
+    flex-shrink: 0;
+  }
+
+  .ticker-sep {
+    color: var(--verde);
+    font-weight: 700;
+  }
+
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#inicio" class="nav-logo">COPA<span>26</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#sedes">Sedes</a></li>
+    <li><a href="#grupos">Grupos</a></li>
+    <li><a href="#selecoes">Seleções</a></li>
+    <li><a href="#continentes">Continentes</a></li>
+    <li><a href="#informacoes">Informações</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- TICKER -->
+<div class="ticker-wrap" style="margin-top:58px;">
+  <div class="ticker" id="ticker">
+    <span class="ticker-item">Copa do Mundo FIFA 2026 <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">11 de Junho a 19 de Julho <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">EUA · México · Canadá <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">48 Seleções · 104 Jogos <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">Abertura: Estadio Azteca · Cidade do México <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">Final: MetLife Stadium · Nova Jersey <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">Brasil no Grupo C com Marrocos, Escócia e Haiti <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">Copa do Mundo FIFA 2026 <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">11 de Junho a 19 de Julho <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">EUA · México · Canadá <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">48 Seleções · 104 Jogos <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">Abertura: Estadio Azteca · Cidade do México <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">Final: MetLife Stadium · Nova Jersey <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">Brasil no Grupo C com Marrocos, Escócia e Haiti <span class="ticker-sep">✦</span></span>
+  </div>
+</div>
+
+<!-- HERO -->
+<div id="inicio">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <span class="hero-tag">Edição Especial</span>
+    <h1 class="hero-titulo">
+      COPA DO<br>
+      <span class="destaque">MUNDO</span>
+      <span class="ano">2 &nbsp; 0 &nbsp; 2 &nbsp; 6</span>
+    </h1>
+    <p class="hero-sub">O maior espetáculo do planeta. Três países. Quarenta e oito nações. Uma taça.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="num">48</span>
+        <span class="lab">Seleções</span>
+      </div>
+      <div class="hero-stat">
+        <span class="num">104</span>
+        <span class="lab">Partidas</span>
+      </div>
+      <div class="hero-stat">
+        <span class="num">16</span>
+        <span class="lab">Estádios</span>
+      </div>
+      <div class="hero-stat">
+        <span class="num">3</span>
+        <span class="lab">Países-sede</span>
+      </div>
+    </div>
+    <div class="hero-cta">
+      <a href="#sedes" class="btn-primary">Explorar Revista</a>
+      <a href="#grupos" class="btn-outline">Ver os Grupos</a>
+    </div>
+  </div>
+</div>
+
+<!-- SEDES -->
+<section id="sedes" class="fade-in">
+  <div class="section-label">Onde tudo acontece</div>
+  <h2 class="section-titulo">PAÍSES <span>SEDE</span></h2>
+  <div class="divider"></div>
+
+  <div class="sedes-tres">
+    <div class="sede-destaque">
+      <div class="bandeira-grande">🇺🇸</div>
+      <div class="pais-nome">Estados Unidos</div>
+      <div class="pais-info">11 cidades · 78 jogos</div>
+      <p class="pais-desc">O país-sede principal receberá todas as fases eliminatórias a partir das quartas de final, incluindo a grande final no MetLife Stadium em Nova Jersey. As cidades americanas incluem Los Angeles, Nova York, Dallas, Miami, Atlanta, Houston e mais.</p>
+      <div class="pais-stats-grid">
+        <div class="pais-stat-item"><span class="v">11</span><span class="k">Cidades</span></div>
+        <div class="pais-stat-item"><span class="v">78</span><span class="k">Jogos</span></div>
+        <div class="pais-stat-item"><span class="v">1994</span><span class="k">Última Copa</span></div>
+        <div class="pais-stat-item"><span class="v">82.5k</span><span class="k">Cap. Final</span></div>
+      </div>
+    </div>
+    <div class="sede-destaque">
+      <div class="bandeira-grande">🇲🇽</div>
+      <div class="pais-nome">México</div>
+      <div class="pais-info">3 cidades · 13 jogos</div>
+      <p class="pais-desc">O México terá a honra de sediar o jogo de abertura no lendário Estadio Azteca, na Cidade do México — um dos estádios mais históricos do futebol mundial, que já sediou duas finais de Copa (1970 e 1986). Guadalajara e Monterrey também recebem jogos.</p>
+      <div class="pais-stats-grid">
+        <div class="pais-stat-item"><span class="v">3</span><span class="k">Cidades</span></div>
+        <div class="pais-stat-item"><span class="v">13</span><span class="k">Jogos</span></div>
+        <div class="pais-stat-item"><span class="v">11/Jun</span><span class="k">Abertura</span></div>
+        <div class="pais-stat-item"><span class="v">Azteca</span><span class="k">Ícone</span></div>
+      </div>
+    </div>
+    <div class="sede-destaque">
+      <div class="bandeira-grande">🇨🇦</div>
+      <div class="pais-nome">Canadá</div>
+      <div class="pais-info">2 cidades · 13 jogos</div>
+      <p class="pais-desc">Toronto e Vancouver representam o Canadá nessa histórica Copa. O BMO Field em Toronto recebe a estreia da seleção canadense, enquanto o BC Place em Vancouver, com cobertura retrátil, sediará sete partidas com capacidade para 54.500 torcedores.</p>
+      <div class="pais-stats-grid">
+        <div class="pais-stat-item"><span class="v">2</span><span class="k">Cidades</span></div>
+        <div class="pais-stat-item"><span class="v">13</span><span class="k">Jogos</span></div>
+        <div class="pais-stat-item"><span class="v">45k</span><span class="k">BMO Field</span></div>
+        <div class="pais-stat-item"><span class="v">54.5k</span><span class="k">BC Place</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Estádios por país -->
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;" class="fade-in">
+    <div class="estadios-lista">
+      <h3>🇺🇸 Estádios dos EUA</h3>
+      <div class="estadio-item">
+        <div><div class="estadio-nome">MetLife Stadium</div><div class="estadio-cidade">Nova York / Nova Jersey</div></div>
+        <div class="estadio-jogos">6 jogos + FINAL</div>
+      </div>
+      <div class="estadio-item">
+        <div><div class="estadio-nome">SoFi Stadium</div><div class="estadio-cidade">Los Angeles</div></div>
+        <div class="estadio-jogos">6 jogos</div>
+      </div>
+      <div class="estadio-item">
+        <div><div class="estadio-nome">AT&T Stadium</div><div class="estadio-cidade">Dallas</div></div>
+        <div class="estadio-jogos">7 jogos</div>
+      </div>
+      <div class="estadio-item">
+        <div><div class="estadio-nome">Gillette Stadium</div><div class="estadio-cidade">Boston</div></div>
+        <div class="estadio-jogos">7 jogos</div>
+      </div>
+      <div class="estadio-item">
+        <div><div class="estadio-nome">Hard Rock Stadium</div><div class="estadio-cidade">Miami — 3º lugar</div></div>
+        <div class="estadio-jogos">6 jogos</div>
+      </div>
+      <div class="estadio-item">
+        <div><div class="estadio-nome">NRG Stadium</div><div class="estadio-cidade">Houston</div></div>
+        <div class="estadio-jogos">6 jogos</div>
+      </div>
+      <div class="estadio-item">
+        <div><div class="estadio-nome">Arrowhead Stadium</div><div class="estadio-cidade">Kansas City</div></div>
+        <div class="estadio-jogos">6 jogos</div>
+      </div>
+      <div class="estadio-item">
+        <div><div class="estadio-nome">Mercedes-Benz Stadium</div><div class="estadio-cidade">Atlanta</div></div>
+        <div class="estadio-jogos">6 jogos</div>
+      </div>
+      <div class="estadio-item">
+        <div><div class="estadio-nome">Lincoln Financial Field</div><div class="estadio-cidade">Filadélfia</div></div>
+        <div class="estadio-jogos">6 jogos</div>
+      </div>
+      <div class="estadio-item">
+        <div><div class="estadio-nome">Levi's Stadium</div><div class="estadio-cidade">São Francisco</div></div>
+        <div class="estadio-jogos">6 jogos</div>
+      </div>
+      <div class="estadio-item">
+        <div><div class="estadio-nome">Lumen Field</div><div class="estadio-cidade">Seattle</div></div>
+        <div class="estadio-jogos">6 jogos</div>
+      </div>
+    </div>
+    <div class="estadios-lista">
+      <h3>🇲🇽 Estádios do México</h3>
+      <div class="estadio-item">
+        <div><div class="estadio-nome">Estadio Azteca</div><div class="estadio-cidade">Cidade do México — Abertura</div></div>
+        <div class="estadio-jogos">5 jogos</div>
+      </div>
+      <div class="estadio-item">
+        <div><div class="estadio-nome">Estadio Akron</div><div class="estadio-cidade">Guadalajara</div></div>
+        <div class="estadio-jogos">4 jogos</div>
+      </div>
+      <div class="estadio-item">
+        <div><div class="estadio-nome">Estadio BBVA</div><div class="estadio-cidade">Monterrey</div></div>
+        <div class="estadio-jogos">4 jogos</div>
+      </div>
+      <h3 style="margin-top:2rem;">🇨🇦 Estádios do Canadá</h3>
+      <div class="estadio-item">
+        <div><div class="estadio-nome">BMO Field</div><div class="estadio-cidade">Toronto</div></div>
+        <div class="estadio-jogos">6 jogos</div>
+      </div>
+      <div class="estadio-item">
+        <div><div class="estadio-nome">BC Place</div><div class="estadio-cidade">Vancouver</div></div>
+        <div class="estadio-jogos">7 jogos</div>
+      </div>
+    </div>
+    <div style="background:linear-gradient(135deg,var(--azul),#001040);border:1px solid rgba(255,223,0,0.15);padding:2rem;">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--amarelo);margin-bottom:1.5rem;letter-spacing:1px;">📅 DATAS IMPORTANTES</div>
+      <div class="estadio-item"><div><div class="estadio-nome">Abertura</div><div class="estadio-cidade">México x África do Sul</div></div><div class="estadio-jogos">11 Jun</div></div>
+      <div class="estadio-item"><div><div class="estadio-nome">Estreia do Brasil</div><div class="estadio-cidade">Brasil x Marrocos — Nova York</div></div><div class="estadio-jogos">13 Jun</div></div>
+      <div class="estadio-item"><div><div class="estadio-nome">Fim Fase de Grupos</div><div class="estadio-cidade">Todos os grupos definidos</div></div><div class="estadio-jogos">27 Jun</div></div>
+      <div class="estadio-item"><div><div class="estadio-nome">Início Mata-mata</div><div class="estadio-cidade">Rodada de 32</div></div><div class="estadio-jogos">29 Jun</div></div>
+      <div class="estadio-item"><div><div class="estadio-nome">3º Lugar</div><div class="estadio-cidade">Hard Rock Stadium — Miami</div></div><div class="estadio-jogos">18 Jul</div></div>
+      <div class="estadio-item"><div><div class="estadio-nome" style="color:var(--amarelo);">GRANDE FINAL</div><div class="estadio-cidade">MetLife Stadium — Nova Jersey</div></div><div class="estadio-jogos" style="color:var(--amarelo);">19 Jul</div></div>
+      <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.1);">
+        <div style="font-family:'Oswald',sans-serif;font-size:0.65rem;letter-spacing:2px;color:var(--texto-suave);text-transform:uppercase;margin-bottom:0.5rem;">Transmissão no Brasil</div>
+        <div style="font-size:0.9rem;color:var(--texto);">Globo · SBT · CazéTV · N Sports</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SELEÇÕES ESPECIAIS -->
+<section id="selecoes" class="fade-in">
+  <div class="section-label">Matérias especiais</div>
+  <h2 class="section-titulo">AS GRANDES <span>SELEÇÕES</span></h2>
+  <div class="divider"></div>
+
+  <div class="selecoes-tabs" id="tabs">
+    <button class="tab-btn active" onclick="abrirTab('brasil')">🇧🇷 Brasil</button>
+    <button class="tab-btn" onclick="abrirTab('argentina')">🇦🇷 Argentina</button>
+    <button class="tab-btn" onclick="abrirTab('franca')">🇫🇷 França</button>
+    <button class="tab-btn" onclick="abrirTab('espanha')">🇪🇸 Espanha</button>
+    <button class="tab-btn" onclick="abrirTab('alemanha')">🇩🇪 Alemanha</button>
+    <button class="tab-btn" onclick="abrirTab('portugal')">🇵🇹 Portugal</button>
+    <button class="tab-btn" onclick="abrirTab('inglaterra')">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra</button>
+  </div>
+
+  <!-- BRASIL -->
+  <div class="tab-conteudo active" id="tab-brasil">
+    <div class="selecao-layout">
+      <div class="selecao-card-lateral">
+        <div class="selecao-bandeira">🇧🇷</div>
+        <div class="selecao-pais">Brasil</div>
+        <div class="selecao-apelido">A Seleção Canarinho</div>
+        <div class="selecao-meta"><span class="mk">Técnico</span><span class="mv">Carlo Ancelotti</span></div>
+        <div class="selecao-meta"><span class="mk">Grupo</span><span class="mv">C — Marrocos, Escócia, Haiti</span></div>
+        <div class="selecao-meta"><span class="mk">Ranking FIFA</span><span class="mv">Top 5 Mundial</span></div>
+        <div class="selecao-meta"><span class="mk">Estreia</span><span class="mv">13 Jun — Brasil x Marrocos</span></div>
+        <div class="selecao-meta"><span class="mk">Estádio</span><span class="mv">MetLife Stadium — NY</span></div>
+        <div class="selecao-conquistas">
+          <div class="conquistas-label">🏆 Títulos Mundiais (5)</div>
+          <div class="copas-lista">
+            <span class="copa-ano">1958</span>
+            <span class="copa-ano">1962</span>
+            <span class="copa-ano">1970</span>
+            <span class="copa-ano">1994</span>
+            <span class="copa-ano">2002</span>
+          </div>
+        </div>
+      </div>
+      <div class="selecao-conteudo">
+        <h2>Em Busca do Hexa</h2>
+        <p>O Brasil chega à Copa do Mundo de 2026 com uma missão histórica: conquistar o sexto título mundial e acabar com um jejum de 24 anos sem levantar a taça. A única seleção a disputar todas as edições da Copa do Mundo, o Brasil é o maior campeão da história com cinco títulos, mas vive uma espera dolorosa desde 2002, no Japão e Coreia.</p>
+        <p>A grande novidade é o técnico Carlo Ancelotti, o italiano multicampeão que assumiu o comando após a saída de Dorival Júnior. Ancelotti, vencedor de quatro Champions Leagues, leva para a seleção uma mentalidade europeia de alto nível, com foco em organização tática e valorização das estrelas individuais. Vinicius Jr., astro do Real Madrid, é a principal esperança de levar o Brasil ao título.</p>
+        <p>O grupo C parece acessível — Marrocos, Escócia e Haiti — mas o Brasil sabe que na Copa não existe jogo fácil. A projeção do chaveamento coloca possíveis confrontos com Inglaterra nas quartas de final e Argentina na semifinal, o que tornaria o caminho até a final um espetáculo à parte.</p>
+
+        <div class="jogadores-titulo">⭐ Jogadores em destaque — Prováveis convocados</div>
+        <div class="jogadores-grid">
+          <div class="jogador-card jogador-destaque">
+            <span class="jogador-numero">7</span>
+            <div class="jogador-nome">Vinicius Jr.</div>
+            <div class="jogador-pos">⭐ Atacante</div>
+            <div class="jogador-clube">Real Madrid — ESP</div>
+          </div>
+          <div class="jogador-card jogador-destaque">
+            <span class="jogador-numero">11</span>
+            <div class="jogador-nome">Raphinha</div>
+            <div class="jogador-pos">⭐ Atacante</div>
+            <div class="jogador-clube">Barcelona — ESP</div>
+          </div>
+          <div class="jogador-card">
+            <span class="jogador-numero">1</span>
+            <div class="jogador-nome">Alisson</div>
+            <div class="jogador-pos">Goleiro</div>
+            <div class="jogador-clube">Liverpool — ING</div>
+          </div>
+          <div class="jogador-card">
+            <span class="jogador-numero">5</span>
+            <div class="jogador-nome">Casemiro</div>
+            <div class="jogador-pos">Volante</div>
+            <div class="jogador-clube">Manchester United — ING</div>
+          </div>
+          <div class="jogador-card">
+            <span class="jogador-numero">4</span>
+            <div class="jogador-nome">Marquinhos</div>
+            <div class="jogador-pos">Zagueiro</div>
+            <div class="jogador-clube">Paris Saint-Germain — FRA</div>
+          </div>
+          <div class="jogador-card">
+            <span class="jogador-numero">14</span>
+            <div class="jogador-nome">Danilo</div>
+            <div class="jogador-pos">Lateral Direito</div>
+            <div class="jogador-clube">Flamengo — BRA</div>
+          </div>
+          <div class="jogador-card">
+            <span class="jogador-numero">6</span>
+            <div class="jogador-nome">Gabriel Magalhães</div>
+            <div class="jogador-pos">Zagueiro</div>
+            <div class="jogador-clube">Arsenal — ING</div>
+          </div>
+          <div class="jogador-card">
+            <span class="jogador-numero">18</span>
+            <div class="jogador-nome">Bruno Guimarães</div>
+            <div class="jogador-pos">Meio-campista</div>
+            <div class="jogador-clube">Newcastle — ING</div>
+          </div>
+          <div class="jogador-card">
+            <span class="jogador-numero">9</span>
+            <div class="jogador-nome">Matheus Cunha</div>
+            <div class="jogador-pos">Atacante</div>
+            <div class="jogador-clube">Manchester United — ING</div>
+          </div>
+          <div class="jogador-card">
+            <span class="jogador-numero">21</span>
+            <div class="jogador-nome">João Pedro</div>
+            <div class="jogador-pos">Atacante</div>
+            <div class="jogador-clube">Brighton — ING</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ARGENTINA -->
+  <div class="tab-conteudo" id="tab-argentina">
+    <div class="selecao-layout">
+      <div class="selecao-card-lateral">
+        <div class="selecao-bandeira">🇦🇷</div>
+        <div class="selecao-pais">Argentina</div>
+        <div class="selecao-apelido">La Albiceleste</div>
+        <div class="selecao-meta"><span class="mk">Técnico</span><span class="mv">Lionel Scaloni</span></div>
+        <div class="selecao-meta"><span class="mk">Grupo</span><span class="mv">J — Argélia, Áustria, Jordânia</span></div>
+        <div class="selecao-meta"><span class="mk">Status</span><span class="mv">Campeã Mundial 2022</span></div>
+        <div class="selecao-conquistas">
+          <div class="conquistas-label">🏆 Títulos Mundiais (3)</div>
+          <div class="copas-lista">
+            <span class="copa-ano">1978</span>
+            <span class="copa-ano">1986</span>
+            <span class="copa-ano">2022</span>
+          </div>
+        </div>
+      </div>
+      <div class="selecao-conteudo">
+        <h2>Os Campeões em Defesa do Título</h2>
+        <p>A Argentina chega ao Mundial de 2026 como atual campeã do mundo, buscando o tetracampeonato inédito. Com Lionel Scaloni mantendo a base campeã do Qatar 2022, a Albiceleste é uma das favoritas absolutas ao título, apoiada num elenco equilibrado e de alto nível.</p>
+        <p>O principal questionamento é sobre o futuro de Lionel Messi, que completará 39 anos em junho de 2026. Mesmo assim, o craque tem sido decisivo e deve estar presente nessa que pode ser sua última Copa do Mundo. Ao redor dele, nomes como Julián Álvarez, do Atlético de Madrid, e Lautaro Martínez consolidam um ataque assustador.</p>
+
+        <div class="jogadores-titulo">⭐ Jogadores em destaque</div>
+        <div class="jogadores-grid">
+          <div class="jogador-card jogador-destaque">
+            <span class="jogador-numero">10</span>
+            <div class="jogador-nome">Lionel Messi</div>
+            <div class="jogador-pos">⭐ Camisa 10</div>
+            <div class="jogador-clube">Inter Miami — EUA</div>
+          </div>
+          <div class="jogador-card jogador-destaque">
+            <span class="jogador-numero">9</span>
+            <div class="jogador-nome">Julián Álvarez</div>
+            <div class="jogador-pos">⭐ Atacante</div>
+            <div class="jogador-clube">Atlético de Madrid — ESP</div>
+          </div>
+          <div class="jogador-card">
+            <span class="jogador-numero">22</span>
+            <div class="jogador-nome">Lautaro Martínez</div>
+            <div class="jogador-pos">Atacante</div>
+            <div class="jogador-clube">Inter de Milão — ITA</div>
+          </div>
+          <div class="jogador-card">
+            <span class="jogador-numero">23</span>
+            <div class="jogador-nome">Emiliano Martínez</div>
+            <div class="jogador-pos">Goleiro</div>
+            <div class="jogador-clube">Aston Villa — ING</div>
+          </div>
+          <div class="jogador-card">
+            <span class="jogador-numero">8</span>
+            <div class="jogador-nome">Enzo Fernández</div>
+            <div class="jogador-pos">Meio-campista</div>
+            <div class="jogador-clube">Chelsea — ING</div>
+          </div>
+          <div class="jogador-card">
+            <span class="jogador-numero">11</span>
+            <div class="jogador-nome">Rodrigo De Paul</div>
+            <div class="jogador-pos">Meio-campista</div>
+            <div class="jogador-clube">Atlético de Madrid — ESP</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FRANÇA -->
+  <div class="tab-conteudo" id="tab-franca">
+    <div class="selecao-layout">
+      <div class="selecao-card-lateral">
+        <div class="selecao-bandeira">🇫🇷</div>
+        <div class="selecao-pais">França</div>
+        <div class="selecao-apelido">Les Bleus</div>
+        <div class="selecao-meta"><span class="mk">Técnico</span><span class="mv">Didier Deschamps</span></div>
+        <div class="selecao-meta"><span class="mk">Grupo</span><span class="mv">I — Senegal, Iraque, Noruega</span></div>
+        <div class="selecao-meta"><span class="mk">Status</span><span class="mv">Vice-campeã 2022</span></div>
+        <div class="selecao-conquistas">
+          <div class="conquistas-label">🏆 Títulos Mundiais (2)</div>
+          <div class="copas-lista">
+            <span class="copa-ano">1998</span>
+            <span class="copa-ano">2018</span>
+          </div>
+        </div>
+      </div>
+      <div class="selecao-conteudo">
+        <h2>A Potência do Futebol Europeu</h2>
+        <p>A França é uma das grandes favoritas ao título de 2026. Vice-campeã em 2022, perdendo nos pênaltis para a Argentina numa das finais mais emocionantes da história, Les Bleus têm um elenco repleto de talentos e chegam ao torneio motivados pela vingança.</p>
+        <p>Kylian Mbappé lidera uma geração extraordinária, com Aurélien Tchouaméni, Camavinga e outros jovens que já têm experiência internacional de alto nível. Com Didier Deschamps no comando, a França combina talento individual com organização coletiva europeia de primeira linha.</p>
+
+        <div class="jogadores-titulo">⭐ Jogadores em destaque</div>
+        <div class="jogadores-grid">
+          <div class="jogador-card jogador-destaque">
+            <span class="jogador-numero">10</span>
+            <div class="jogador-nome">Kylian Mbappé</div>
+            <div class="jogador-pos">⭐ Atacante</div>
+            <div class="jogador-clube">Real Madrid — ESP</div>
+          </div>
+          <div class="jogador-card jogador-destaque">
+            <span class="jogador-numero">9</span>
+            <div class="jogador-nome">Olivier Giroud</div>
+            <div class="jogador-pos">Atacante</div>
+            <div class="jogador-clube">Los Angeles FC — EUA</div>
+          </div>
+          <div class="jogador-card">
+            <span class="jogador-numero">8</span>
+            <div class="jogador-nome">Aurélien Tchouaméni</div>
+            <div class="jogador-pos">Volante</div>
+            <div class="jogador-clube">Real Madrid — ESP</div>
+          </div>
+          <div class="jogador-card">
+            <span class="jogador-numero">14</span>
+            <div class="jogador-nome">Adrien Rabiot</div>
+            <div class="jogador-pos">Meio-campista</div>
+            <div class="jogador-clube">Marseille — FRA</div>
+          </div>
+          <div class="jogador-card">
+            <span class="jogador-numero">5</span>
+            <div class="jogador-nome">Jules Koundé</div>
+            <div class="jogador-pos">Zagueiro</div>
+            <div class="jogador-clube">Barcelona — ESP</div>
+          </div>
+          <div class="jogador-card">
+            <span class="jogador-numero">1</span>
+            <div class="jogador-nome">Mike Maignan</div>
+            <div class="jogador-pos">Goleiro</div>
+            <div class="jogador-clube">AC Milan — ITA</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ESPANHA -->
+  <div class="tab-conteudo" id="tab-espanha">
+    <div class="selecao-layout">
+      <div class="selecao-card-lateral">
+        <div class="selecao-bandeira">🇪🇸</div>
+        <div class="selecao-pais">Espanha</div>
+        <div class="selecao-apelido">La Furia Roja</div>
+        <div class="selecao-meta"><span class="mk">Técnico</span><span class="mv">Luis de la Fuente</span></div>
+        <div class="selecao-meta"><span class="mk">Grupo</span><span class="mv">H — Cabo Verde, Ar. Saudita, Uruguai</span></div>
+        <div class="selecao-meta"><span class="mk">Status</span><span class="mv">Campeã da Euro 2024</span></div>
+        <div class="selecao-conquistas">
+          <div class="conquistas-label">🏆 Títulos Mundiais (1)</div>
+          <div class="copas-lista">
+            <span class="copa-ano">2010</span>
+          </div>
+        </div>
+      </div>
+      <div class="selecao-conteudo">
+        <h2>A Geração Mais Talentosa da História Recente</h2>
+        <p>A Espanha vive um momento mágico. Campeã da Eurocopa 2024 de forma convincente, a seleção liderada por Lamine Yamal e Pedri apresenta um futebol técnico e envolvente que encantou o mundo. Luis de la Fuente moldou uma equipe jovem, corajosa e com identidade muito clara.</p>
+        <p>Lamine Yamal, nascido em 2007, entrou para a história sendo o jogador mais jovem a marcar numa final de Eurocopa. Junto com Nico Williams, Pedri e Dani Olmo, a Espanha conta com uma geração rara que pode dominar o futebol mundial por anos. A Copa de 2026 representa a chance de voltarem ao topo depois de 16 anos.</p>
+
+        <div class="jogadores-titulo">⭐ Jogadores em destaque</div>
+        <div class="jogadores-grid">
+          <div class="jogador-card jogador-destaque">
+            <span class="jogador-numero">19</span>
+            <div class="jogador-nome">Lamine Yamal</div>
+            <div class="jogador-pos">⭐ Atacante</div>
+            <div class="jogador-clube">Barcelona — ESP</div>
+          </div>
+          <div class="jogador-card jogador-destaque">
+            <span class="jogador-numero">8</span>
+            <div class="jogador-nome">Pedri</div>
+            <div class="jogador-pos">⭐ Meia</div>
+            <div class="jogador-clube">Barcelona — ESP</div>
+          </div>
+          <div class="jogador-card">
+            <span class="jogador-numero">11</span>
+            <div class="jogador-nome">Nico Williams</div>
+            <div class="jogador-pos">Atacante</div>
+            <div class="jogador-clube">Athletic Bilbao — ESP</div>
+          </div>
+          <div class="jogador-card">
+            <span class="jogador-numero">9</span>
+            <div class="jogador-nome">Álvaro Morata</div>
+            <div class="jogador-pos">Atacante</div>
+            <div class="jogador-clube">AC Milan — ITA</div>
+          </div>
+          <div class="jogador-card">
+            <span class="jogador-numero">16</span>
+            <div class="jogador-nome">Rodri</div>
+            <div class="jogador-pos">Volante</div>
+            <div class="jogador-clube">Manchester City — ING</div>
+          </div>
+          <div class="jogador-card">
+            <span class="jogador-numero">10</span>
+            <div class="jogador-nome">Dani Olmo</div>
+            <div class="jogador-pos">Meia atacante</div>
+            <div class="jogador-clube">Barcelona — ESP</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ALEMANHA -->
+  <div class="tab-conteudo" id="tab-alemanha">
+    <div class="selecao-layout">
+      <div class="selecao-card-lateral">
+        <div class="selecao-bandeira">🇩🇪</div>
+        <div class="selecao-pais">Alemanha</div>
+        <div class="selecao-apelido">Die Mannschaft</div>
+        <div class="selecao-meta"><span class="mk">Técnico</span><span class="mv">Julian Nagelsmann</span></div>
+        <div class="selecao-meta"><span class="mk">Grupo</span><span class="mv">E — Curaçao, Costa do Marfim, Equador</span></div>
+        <div class="selecao-meta"><span class="mk">Status</span><span class="mv">Semifinalista na Eurocopa 2024</span></div>
+        <div class="selecao-conquistas">
+          <div class="conquistas-label">🏆 Títulos Mundiais (4)</div>
+          <div class="copas-lista">
+            <span class="copa-ano">1954</span>
+            <span class="copa-ano">1974</span>
+            <span class="copa-ano">1990</span>
+            <span class="copa-ano">2014</span>
+          </div>
+        </div>
+      </div>
+      <div class="selecao-conteudo">
+        <h2>A Reconstrução da Potência Alemã</h2>
+        <p>Após anos de decepções — eliminada na fase de grupos em 2018 e 2022 — a Alemanha ressurgiu com Nagelsmann. Semifinalista na Euro 2024 em casa, a Mannschaft retomou a confiança e o orgulho. Florian Wirtz, do Bayer Leverkusen, emergiu como o novo ídolo do futebol alemão.</p>
+        <p>Com Jamal Musiala como principal estrela e um coletivo reorganizado, a Alemanha aparece entre as candidatas ao título. O grupo E parece favorável à classificação tranquila, o que pode permitir que a seleção chegue ao mata-mata descansada e focada.</p>
+
+        <div class="jogadores-titulo">⭐ Jogadores em destaque</div>
+        <div class="jogadores-grid">
+          <div class="jogador-card jogador-destaque">
+            <span class="jogador-numero">10</span>
+            <div class="jogador-nome">Jamal Musiala</div>
+            <div class="jogador-pos">⭐ Meia atacante</div>
+            <div class="jogador-clube">Bayern Munique — ALE</div>
+          </div>
+          <div class="jogador-card jogador-destaque">
+            <span class="jogador-numero">17</span>
+            <div class="jogador-nome">Florian Wirtz</div>
+            <div class="jogador-pos">⭐ Meia</div>
+            <div class="jogador-clube">Bayer Leverkusen — ALE</div>
+          </div>
+          <div class="jogador-card">
+            <span class="jogador-numero">9</span>
+            <div class="jogador-nome">Kai Havertz</div>
+            <div class="jogador-pos">Atacante</div>
+            <div class="jogador-clube">Arsenal — ING</div>
+          </div>
+          <div class="jogador-card">
+            <span class="jogador-numero">1</span>
+            <div class="jogador-nome">Manuel Neuer</div>
+            <div class="jogador-pos">Goleiro</div>
+            <div class="jogador-clube">Bayern Munique — ALE</div>
+          </div>
+          <div class="jogador-card">
+            <span class="jogador-numero">6</span>
+            <div class="jogador-nome">Joshua Kimmich</div>
+            <div class="jogador-pos">Meio-campista</div>
+            <div class="jogador-clube">Bayern Munique — ALE</div>
+          </div>
+          <div class="jogador-card">
+            <span class="jogador-numero">14</span>
+            <div class="jogador-nome">Leroy Sané</div>
+            <div class="jogador-pos">Atacante</div>
+            <div class="jogador-clube">Bayern Munique — ALE</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PORTUGAL -->
+  <div class="tab-conteudo" id="tab-portugal">
+    <div class="selecao-layout">
+      <div class="selecao-card-lateral">
+        <div class="selecao-bandeira">🇵🇹</div>
+        <div class="selecao-pais">Portugal</div>
+        <div class="selecao-apelido">A Seleção das Quinas</div>
+        <div class="selecao-meta"><span class="mk">Técnico</span><span class="mv">Roberto Martínez</span></div>
+        <div class="selecao-meta"><span class="mk">Grupo</span><span class="mv">K — RD Congo, Uzbequistão, Colômbia</span></div>
+        <div class="selecao-meta"><span class="mk">Referência</span><span class="mv">Cristiano Ronaldo</span></div>
+        <div class="selecao-conquistas">
+          <div class="conquistas-label">🏆 Títulos Mundiais (0)</div>
+          <div class="copas-lista">
+            <span class="copa-ano" style="background:rgba(0,156,59,0.15);border-color:rgba(0,156,59,0.3);color:var(--verde);">Euro 2016</span>
+            <span class="copa-ano" style="background:rgba(0,156,59,0.15);border-color:rgba(0,156,59,0.3);color:var(--verde);">Nations 2019</span>
+          </div>
+        </div>
+      </div>
+      <div class="selecao-conteudo">
+        <h2>A Geração Dourada com Fome de Copa</h2>
+        <p>Portugal nunca ganhou uma Copa do Mundo, mas essa pode ser a geração mais talentosa da história do país para chegar perto. Com Cristiano Ronaldo ainda presente — apesar de ser esperado mais como liderança do que como protagonista em campo — Portugal conta com jovens extraordinários como Rafael Leão, Bernardo Silva e Vitinha.</p>
+        <p>Roberto Martínez tem construído uma equipe equilibrada, que joga bom futebol e tem profundidade no elenco. O Grupo K parece acessível, o que pode levar Portugal ao mata-mata em forma e confiante para uma possível campanha histórica.</p>
+
+        <div class="jogadores-titulo">⭐ Jogadores em destaque</div>
+        <div class="jogadores-grid">
+          <div class="jogador-card jogador-destaque">
+            <span class="jogador-numero">7</span>
+            <div class="jogador-nome">Cristiano Ronaldo</div>
+            <div class="jogador-pos">⭐ Ícone</div>
+            <div class="jogador-clube">Al Nassr — ARS</div>
+          </div>
+          <div class="jogador-card jogador-destaque">
+            <span class="jogador-numero">10</span>
+            <div class="jogador-nome">Bernardo Silva</div>
+            <div class="jogador-pos">⭐ Meia</div>
+            <div class="jogador-clube">Manchester City — ING</div>
+          </div>
+          <div class="jogador-card">
+            <span class="jogador-numero">17</span>
+            <div class="jogador-nome">Rafael Leão</div>
+            <div class="jogador-pos">Atacante</div>
+            <div class="jogador-clube">AC Milan — ITA</div>
+          </div>
+          <div class="jogador-card">
+            <span class="jogador-numero">8</span>
+            <div class="jogador-nome">Bruno Fernandes</div>
+            <div class="jogador-pos">Meia</div>
+            <div class="jogador-clube">Manchester United — ING</div>
+          </div>
+          <div class="jogador-card">
+            <span class="jogador-numero">20</span>
+            <div class="jogador-nome">Vitinha</div>
+            <div class="jogador-pos">Meio-campista</div>
+            <div class="jogador-clube">Paris Saint-Germain — FRA</div>
+          </div>
+          <div class="jogador-card">
+            <span class="jogador-numero">23</span>
+            <div class="jogador-nome">Diogo Costa</div>
+            <div class="jogador-pos">Goleiro</div>
+            <div class="jogador-clube">FC Porto — POR</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INGLATERRA -->
+  <div class="tab-conteudo" id="tab-inglaterra">
+    <div class="selecao-layout">
+      <div class="selecao-card-lateral">
+        <div class="selecao-bandeira">🏴󠁧󠁢󠁥󠁮󠁧󠁿</div>
+        <div class="selecao-pais">Inglaterra</div>
+        <div class="selecao-apelido">The Three Lions</div>
+        <div class="selecao-meta"><span class="mk">Técnico</span><span class="mv">Lee Carsley</span></div>
+        <div class="selecao-meta"><span class="mk">Grupo</span><span class="mv">L — Croácia, Gana, Panamá</span></div>
+        <div class="selecao-meta"><span class="mk">Status</span><span class="mv">Vice-campeã Euro 2024</span></div>
+        <div class="selecao-conquistas">
+          <div class="conquistas-label">🏆 Títulos Mundiais (1)</div>
+          <div class="copas-lista">
+            <span class="copa-ano">1966</span>
+          </div>
+        </div>
+      </div>
+      <div class="selecao-conteudo">
+        <h2>60 Anos de Espera pelo Segundo Título</h2>
+        <p>A Inglaterra não conquista um título mundial desde 1966, quando foi campeã em casa. Seis décadas depois, a geração atual pode ser a mais competente para acabar com esse jejum. Com um grupo L aparentemente favorável, os Três Leões projetam chegar ao mata-mata em excelente forma.</p>
+        <p>Jude Bellingham, do Real Madrid, é o craque que pode conduzir a Inglaterra ao título. Com apenas 22 anos na Copa, o meia tem tudo para ser o melhor jogador do torneio. Cole Palmer, Bukayo Saka e outros jovens talentosos formam um elenco de enorme qualidade técnica e física.</p>
+
+        <div class="jogadores-titulo">⭐ Jogadores em destaque</div>
+        <div class="jogadores-grid">
+          <div class="jogador-card jogador-destaque">
+            <span class="jogador-numero">10</span>
+            <div class="jogador-nome">Jude Bellingham</div>
+            <div class="jogador-pos">⭐ Meia</div>
+            <div class="jogador-clube">Real Madrid — ESP</div>
+          </div>
+          <div class="jogador-card jogador-destaque">
+            <span class="jogador-numero">7</span>
+            <div class="jogador-nome">Bukayo Saka</div>
+            <div class="jogador-pos">⭐ Atacante</div>
+            <div class="jogador-clube">Arsenal — ING</div>
+          </div>
+          <div class="jogador-card">
+            <span class="jogador-numero">20</span>
+            <div class="jogador-nome">Cole Palmer</div>
+            <div class="jogador-pos">Meia atacante</div>
+            <div class="jogador-clube">Chelsea — ING</div>
+          </div>
+          <div class="jogador-card">
+            <span class="jogador-nome">Harry Kane</div>
+            <div class="jogador-pos">Atacante</div>
+            <div class="jogador-clube">Bayern Munique — ALE</div>
+          </div>
+          <div class="jogador-card">
+            <span class="jogador-numero">1</span>
+            <div class="jogador-nome">Jordan Pickford</div>
+            <div class="jogador-pos">Goleiro</div>
+            <div class="jogador-clube">Everton — ING</div>
+          </div>
+          <div class="jogador-card">
+            <span class="jogador-numero">6</span>
+            <div class="jogador-nome">Marc Guéhi</div>
+            <div class="jogador-pos">Zagueiro</div>
+            <div class="jogador-clube">Crystal Palace — ING</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTINENTES -->
+<section id="continentes" class="fade-in">
+  <div class="section-label">Todas as classificadas</div>
+  <h2 class="section-titulo">SELEÇÕES POR <span>CONTINENTE</span></h2>
+  <div class="divider"></div>
+
+  <div class="continentes-grid">
+    <div class="continente-bloco">
+      <div class="continente-header">
+        <span class="continente-icone">🌎</span>
+        <span class="continente-nome">América do Sul</span>
+        <span class="continente-vagas">6 vagas</span>
+      </div>
+      <div class="continente-selecoes">
+        <span class="sel-pill">🇧🇷 Brasil</span>
+        <span class="sel-pill">🇦🇷 Argentina</span>
+        <span class="sel-pill">🇨🇴 Colômbia</span>
+        <span class="sel-pill">🇺🇾 Uruguai</span>
+        <span class="sel-pill">🇪🇨 Equador</span>
+        <span class="sel-pill">🇵🇾 Paraguai</span>
+      </div>
+    </div>
+    <div class="continente-bloco">
+      <div class="continente-header">
+        <span class="continente-icone">🌍</span>
+        <span class="continente-nome">Europa</span>
+        <span class="continente-vagas">16 vagas</span>
+      </div>
+      <div class="continente-selecoes">
+        <span class="sel-pill">🇫🇷 França</span>
+        <span class="sel-pill">🇩🇪 Alemanha</span>
+        <span class="sel-pill">🇪🇸 Espanha</span>
+        <span class="sel-pill">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra</span>
+        <span class="sel-pill">🇵🇹 Portugal</span>
+        <span class="sel-pill">🇳🇱 Holanda</span>
+        <span class="sel-pill">🇧🇪 Bélgica</span>
+        <span class="sel-pill">🇭🇷 Croácia</span>
+        <span class="sel-pill">🇨🇭 Suíça</span>
+        <span class="sel-pill">🇦🇹 Áustria</span>
+        <span class="sel-pill">🏴󠁧󠁢󠁳󠁣󠁴󠁿 Escócia</span>
+        <span class="sel-pill">🇹🇷 Turquia</span>
+        <span class="sel-pill">🇨🇿 Rep. Tcheca</span>
+        <span class="sel-pill">🇸🇪 Suécia</span>
+        <span class="sel-pill">🇳🇴 Noruega</span>
+        <span class="sel-pill">🇧🇦 Bósnia</span>
+      </div>
+    </div>
+    <div class="continente-bloco">
+      <div class="continente-header">
+        <span class="continente-icone">🌍</span>
+        <span class="continente-nome">África</span>
+        <span class="continente-vagas">9 vagas</span>
+      </div>
+      <div class="continente-selecoes">
+        <span class="sel-pill">🇲🇦 Marrocos</span>
+        <span class="sel-pill">🇸🇳 Senegal</span>
+        <span class="sel-pill">🇨🇮 Costa do Marfim</span>
+        <span class="sel-pill">🇿🇦 África do Sul</span>
+        <span class="sel-pill">🇪🇬 Egito</span>
+        <span class="sel-pill">🇩🇿 Argélia</span>
+        <span class="sel-pill">🇬🇭 Gana</span>
+        <span class="sel-pill">🇨🇻 Cabo Verde</span>
+        <span class="sel-pill">🇹🇳 Tunísia</span>
+        <span class="sel-pill">🇨🇩 RD Congo</span>
+      </div>
+    </div>
+    <div class="continente-bloco">
+      <div class="continente-header">
+        <span class="continente-icone">🌏</span>
+        <span class="continente-nome">Ásia</span>
+        <span class="continente-vagas">8 vagas</span>
+      </div>
+      <div class="continente-selecoes">
+        <span class="sel-pill">🇯🇵 Japão</span>
+        <span class="sel-pill">🇰🇷 Coreia do Sul</span>
+        <span class="sel-pill">🇮🇷 Irã</span>
+        <span class="sel-pill">🇸🇦 Arábia Saudita</span>
+        <span class="sel-pill">🇦🇺 Austrália</span>
+        <span class="sel-pill">🇶🇦 Catar</span>
+        <span class="sel-pill">🇺🇿 Uzbequistão</span>
+        <span class="sel-pill">🇯🇴 Jordânia</span>
+        <span class="sel-pill">🇮🇶 Iraque</span>
+      </div>
+    </div>
+    <div class="continente-bloco">
+      <div class="continente-header">
+        <span class="continente-icone">🌎</span>
+        <span class="continente-nome">CONCACAF (América do Norte/Central)</span>
+        <span class="continente-vagas">6 vagas</span>
+      </div>
+      <div class="continente-selecoes">
+        <span class="sel-pill">🇺🇸 Estados Unidos</span>
+        <span class="sel-pill">🇲🇽 México</span>
+        <span class="sel-pill">🇨🇦 Canadá</span>
+        <span class="sel-pill">🇵🇦 Panamá</span>
+        <span class="sel-pill">🇭🇹 Haiti</span>
+        <span class="sel-pill">🇨🇼 Curaçao</span>
+      </div>
+    </div>
+    <div class="continente-bloco">
+      <div class="continente-header">
+        <span class="continente-icone">🌏</span>
+        <span class="continente-nome">Oceania</span>
+        <span class="continente-vagas">1 vaga</span>
+      </div>
+      <div class="continente-selecoes">
+        <span class="sel-pill">🇳🇿 Nova Zelândia</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFORMAÇÕES GERAIS -->
+<section id="informacoes" class="fade-in">
+  <div class="section-label">Tudo que você precisa saber</div>
+  <h2 class="section-titulo">INFORMAÇÕES <span>GERAIS</span></h2>
+  <div class="divider"></div>
+
+  <div class="info-grid">
+    <div class="info-bloco">
+      <h3>📅 Calendário da Copa</h3>
+      <ul class="timeline">
+        <li><span class="tl-data">11 Jun 2026</span><div class="tl-evento"><strong>Abertura</strong>México x África do Sul — Estadio Azteca</div></li>
+        <li><span class="tl-data">13 Jun 2026</span><div class="tl-evento"><strong>Estreia do Brasil</strong>Brasil x Marrocos — MetLife, Nova York (19h)</div></li>
+        <li><span class="tl-data">11–27 Jun</span><div class="tl-evento"><strong>Fase de Grupos</strong>12 grupos · 48 seleções · 48 jogos</div></li>
+        <li><span class="tl-data">29 Jun–2 Jul</span><div class="tl-evento"><strong>Rodada de 32</strong>Nova fase — 16 jogos · mata-mata</div></li>
+        <li><span class="tl-data">5–8 Jul</span><div class="tl-evento"><strong>Oitavas de Final</strong>8 jogos eliminatórios</div></li>
+        <li><span class="tl-data">11–12 Jul</span><div class="tl-evento"><strong>Quartas de Final</strong>4 confrontos decisivos</div></li>
+        <li><span class="tl-data">15–16 Jul</span><div class="tl-evento"><strong>Semifinais</strong>Os quatro melhores do mundo</div></li>
+        <li><span class="tl-data">18 Jul</span><div class="tl-evento"><strong>3º Lugar</strong>Hard Rock Stadium — Miami</div></li>
+        <li><span class="tl-data">19 Jul 2026</span><div class="tl-evento"><strong>Grande Final 🏆</strong>MetLife Stadium — Nova Jersey (16h)</div></li>
+      </ul>
+    </div>
+    <div class="info-bloco">
+      <h3>⚙️ Formato da Competição</h3>
+      <div class="formato-item">
+        <div class="formato-num">48</div>
+        <div class="formato-desc"><strong>Seleções participantes</strong>Pela primeira vez 48 nações disputam o Mundial, ante 32 da edição anterior</div>
+      </div>
+      <div class="formato-item">
+        <div class="formato-num">12</div>
+        <div class="formato-desc"><strong>Grupos na fase inicial</strong>Grupos A a L, com 4 seleções cada. Top 2 de cada grupo avança automaticamente</div>
+      </div>
+      <div class="formato-item">
+        <div class="formato-num">32</div>
+        <div class="formato-desc"><strong>Classificados ao mata-mata</strong>Os 2 primeiros de cada grupo + os 8 melhores terceiros colocados</div>
+      </div>
+      <div class="formato-item">
+        <div class="formato-num">104</div>
+        <div class="formato-desc"><strong>Jogos no total</strong>Recorde histórico de partidas, distribuídas em 39 dias de competição</div>
+      </div>
+      <div class="formato-item">
+        <div class="formato-num">8</div>
+        <div class="formato-desc"><strong>Jogos até o título</strong>O campeão precisará disputar 8 jogos — um a mais que nas edições anteriores</div>
+      </div>
+      <div style="margin-top:2rem;background:linear-gradient(135deg,rgba(0,156,59,0.1),rgba(0,39,118,0.1));border:1px solid rgba(255,223,0,0.1);padding:1.25rem;">
+        <div style="font-family:'Oswald',sans-serif;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--amarelo);margin-bottom:0.75rem;">🇧🇷 Ausências Notáveis</div>
+        <p style="font-size:0.85rem;color:var(--texto);line-height:1.7;">A Itália, tetracampeã mundial, ficou fora pelo terceiro Mundial consecutivo — derrota nas repescagens. Chile, Camarões, Costa Rica, Dinamarca, Nigéria, Polônia e Sérvia também são ausências de peso nesta edição.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RODAPÉ -->
+<footer>
+  <span class="footer-logo">COPA<span>26</span></span>
+  <div class="footer-sub">Revista Digital Oficial da Copa do Mundo FIFA 2026</div>
+  <ul class="footer-links">
+    <li><a href="#inicio">Início</a></li>
+    <li><a href="#sedes">Sedes</a></li>
+    <li><a href="#grupos">Grupos</a></li>
+    <li><a href="#selecoes">Seleções</a></li>
+    <li><a href="#continentes">Continentes</a></li>
+    <li><a href="#informacoes">Informações</a></li>
+  </ul>
+  <p class="footer-copy">Copa do Mundo FIFA 2026 · EUA · México · Canadá · 11 Jun – 19 Jul 2026</p>
+</footer>
+
+<script>
+  // ── APLICA TEXTOS DO ADMIN NAS SELEÇÕES ──
+  (function() {
+    const mapa = { brasil:'brasil', argentina:'argentina', franca:'franca', espanha:'espanha', alemanha:'alemanha', portugal:'portugal', inglaterra:'inglaterra' };
+    Object.entries(mapa).forEach(([id, key]) => {
+      const t = TEXTOS[key];
+      if (!t) return;
+      if (t.tecnico) {
+        document.querySelectorAll(`#tab-${id} .mv`).forEach((el,i) => { if(i===0) el.textContent = t.tecnico; });
+      }
+      if (t.apelido) {
+        const ap = document.querySelector(`#tab-${id} .selecao-apelido`);
+        if (ap) ap.textContent = t.apelido;
+      }
+      if (t.p1 || t.p2) {
+        const ps = document.querySelectorAll(`#tab-${id} .selecao-conteudo > p`);
+        if (t.p1 && ps[0]) ps[0].textContent = t.p1;
+        if (t.p2 && ps[1]) ps[1].textContent = t.p2;
+      }
+    });
+  })();
+
+  // Tabs de seleções
+  function abrirTab(id) {
+    document.querySelectorAll('.tab-conteudo').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+
+  // Navegação mobile
+  function toggleNav() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+
+  // Fecha nav ao clicar em link
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => {
+      document.getElementById('navLinks').classList.remove('open');
+    });
+  });
+
+  // Fade-in ao scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Nav ativo no scroll
+  const sections = document.querySelectorAll('section[id], div[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 100) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current
+        ? 'var(--amarelo)' : '';
+      a.style.borderBottomColor = a.getAttribute('href') === '#' + current
+        ? 'var(--amarelo)' : '';
+    });
+  });
+</script>
+</body>
+</html>
