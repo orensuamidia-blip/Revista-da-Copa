@@ -445,6 +445,187 @@ if(CORES.fundo)   document.documentElement.style.setProperty('--preto',  CORES.f
     background: linear-gradient(180deg, var(--preto) 0%, var(--cinza-escuro) 100%);
   }
 
+  /* ── GRUPOS COM TABELA + CONFRONTOS ── */
+  .grupos-novo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 2rem;
+  }
+
+  .grupo-bloco {
+    background: var(--cinza-escuro);
+    border: 1px solid rgba(255,255,255,0.08);
+    overflow: hidden;
+  }
+
+  .grupo-bloco.brasil-grupo {
+    border-color: rgba(255,223,0,0.3);
+    box-shadow: 0 0 20px rgba(255,223,0,0.05);
+  }
+
+  .grupo-bloco-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 1.2rem;
+    background: rgba(0,0,0,0.4);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .grupo-bloco-letra {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    color: var(--verde);
+    line-height: 1;
+  }
+
+  .brasil-grupo .grupo-bloco-letra { color: var(--amarelo); }
+
+  .grupo-bloco-titulo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+  }
+
+  .brasil-grupo .grupo-bloco-titulo { color: var(--amarelo); }
+
+  .grupo-tabela {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Oswald', sans-serif;
+  }
+
+  .grupo-tabela thead tr { background: rgba(0,0,0,0.3); }
+
+  .grupo-tabela thead th {
+    font-size: 0.6rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+    padding: 5px 6px;
+    text-align: center;
+    font-weight: 400;
+  }
+
+  .grupo-tabela thead th:first-child { text-align: left; padding-left: 12px; }
+
+  .grupo-tabela tbody tr {
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    transition: background 0.15s;
+  }
+
+  .grupo-tabela tbody tr:hover { background: rgba(255,255,255,0.03); }
+
+  .grupo-tabela tbody tr.classificado { border-left: 3px solid var(--verde); }
+
+  .grupo-tabela tbody tr.brasil-row {
+    border-left: 3px solid var(--amarelo);
+    background: rgba(255,223,0,0.04);
+  }
+
+  .grupo-tabela td {
+    padding: 7px 6px;
+    font-size: 0.82rem;
+    color: var(--texto);
+    text-align: center;
+  }
+
+  .grupo-tabela td:first-child { text-align: left; padding-left: 10px; }
+
+  .td-selecao {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+  }
+
+  .td-selecao img {
+    width: 22px;
+    height: 15px;
+    object-fit: cover;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .td-selecao .sel-nome { font-size: 0.83rem; color: var(--branco); }
+  .td-pts { font-weight: 600; color: var(--amarelo) !important; font-size: 0.9rem !important; }
+  .td-pos { font-size: 0.75rem; color: var(--texto-suave); width: 22px; }
+
+  .grupo-jogos {
+    padding: 0.75rem 1rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .grupo-jogos-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+    padding: 4px 0 2px;
+  }
+
+  .jogo-row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 5px 6px;
+    background: rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.04);
+    font-family: 'Oswald', sans-serif;
+  }
+
+  .jogo-row.brasil-jogo { border-color: rgba(255,223,0,0.15); }
+
+  .jogo-time {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    color: var(--texto);
+  }
+
+  .jogo-time img {
+    width: 20px;
+    height: 14px;
+    object-fit: cover;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .jogo-time.direita { justify-content: flex-end; text-align: right; }
+
+  .jogo-placar { text-align: center; white-space: nowrap; }
+
+  .placar-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    color: var(--branco);
+    letter-spacing: 2px;
+    display: block;
+  }
+
+  .placar-data {
+    font-size: 0.58rem;
+    color: var(--texto-suave);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: block;
+  }
+
+  .placar-hora { font-size: 0.6rem; color: var(--verde); display: block; }
+
+  @media (max-width: 768px) {
+    .grupos-novo-grid { grid-template-columns: 1fr; }
+    .jogo-time span { font-size: 0.7rem; }
+  }
+
   .grupos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
