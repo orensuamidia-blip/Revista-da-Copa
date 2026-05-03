@@ -1136,7 +1136,7 @@ if(CORES.fundo)   document.documentElement.style.setProperty('--preto',  CORES.f
   </div>
 
   <!-- Estádios por país -->
-  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;" class="fade-in">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;" class="fade-in">
     <div class="estadios-lista">
       <h3>🇺🇸 Estádios dos EUA</h3>
       <div class="estadio-item">
@@ -1206,19 +1206,6 @@ if(CORES.fundo)   document.documentElement.style.setProperty('--preto',  CORES.f
       <div class="estadio-item">
         <div><div class="estadio-nome">BC Place</div><div class="estadio-cidade">Vancouver</div></div>
         <div class="estadio-jogos">7 jogos</div>
-      </div>
-    </div>
-    <div style="background:linear-gradient(135deg,var(--azul),#001040);border:1px solid rgba(255,223,0,0.15);padding:2rem;">
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--amarelo);margin-bottom:1.5rem;letter-spacing:1px;">📅 DATAS IMPORTANTES</div>
-      <div class="estadio-item"><div><div class="estadio-nome">Abertura</div><div class="estadio-cidade">México x África do Sul</div></div><div class="estadio-jogos">11 Jun</div></div>
-      <div class="estadio-item"><div><div class="estadio-nome">Estreia do Brasil</div><div class="estadio-cidade">Brasil x Marrocos — Nova York</div></div><div class="estadio-jogos">13 Jun</div></div>
-      <div class="estadio-item"><div><div class="estadio-nome">Fim Fase de Grupos</div><div class="estadio-cidade">Todos os grupos definidos</div></div><div class="estadio-jogos">27 Jun</div></div>
-      <div class="estadio-item"><div><div class="estadio-nome">Início Mata-mata</div><div class="estadio-cidade">Rodada de 32</div></div><div class="estadio-jogos">29 Jun</div></div>
-      <div class="estadio-item"><div><div class="estadio-nome">3º Lugar</div><div class="estadio-cidade">Hard Rock Stadium — Miami</div></div><div class="estadio-jogos">18 Jul</div></div>
-      <div class="estadio-item"><div><div class="estadio-nome" style="color:var(--amarelo);">GRANDE FINAL</div><div class="estadio-cidade">MetLife Stadium — Nova Jersey</div></div><div class="estadio-jogos" style="color:var(--amarelo);">19 Jul</div></div>
-      <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.1);">
-        <div style="font-family:'Oswald',sans-serif;font-size:0.65rem;letter-spacing:2px;color:var(--texto-suave);text-transform:uppercase;margin-bottom:0.5rem;">Transmissão no Brasil</div>
-        <div style="font-size:0.9rem;color:var(--texto);">Globo · SBT · CazéTV · N Sports</div>
       </div>
     </div>
   </div>
@@ -1910,6 +1897,217 @@ if(CORES.fundo)   document.documentElement.style.setProperty('--preto',  CORES.f
   </ul>
   <p class="footer-copy">Copa do Mundo FIFA 2026 · EUA · México · Canadá · 11 Jun – 19 Jul 2026</p>
 </footer>
+
+<script>
+// ── DADOS DOS GRUPOS ──
+const GRUPOS = [
+  { letra:'A', brasil:false, selecoes:[
+    {nome:'México',code:'mx'},{nome:'África do Sul',code:'za'},
+    {nome:'Coreia do Sul',code:'kr'},{nome:'Rep. Tcheca',code:'cz'}],
+    jogos:[
+      {c1:'mx',t1:'México',c2:'za',t2:'África do Sul',data:'11 Jun',hora:'16h'},
+      {c1:'kr',t1:'Coreia do Sul',c2:'cz',t2:'Rep. Tcheca',data:'12 Jun',hora:'13h'},
+      {c1:'mx',t1:'México',c2:'kr',t2:'Coreia do Sul',data:'16 Jun',hora:'16h'},
+      {c1:'za',t1:'África do Sul',c2:'cz',t2:'Rep. Tcheca',data:'16 Jun',hora:'19h'},
+      {c1:'za',t1:'África do Sul',c2:'kr',t2:'Coreia do Sul',data:'21 Jun',hora:'13h'},
+      {c1:'mx',t1:'México',c2:'cz',t2:'Rep. Tcheca',data:'21 Jun',hora:'13h'}]},
+  { letra:'B', brasil:false, selecoes:[
+    {nome:'Canadá',code:'ca'},{nome:'Bósnia',code:'ba'},
+    {nome:'Catar',code:'qa'},{nome:'Suíça',code:'ch'}],
+    jogos:[
+      {c1:'ca',t1:'Canadá',c2:'ba',t2:'Bósnia',data:'12 Jun',hora:'22h'},
+      {c1:'qa',t1:'Catar',c2:'ch',t2:'Suíça',data:'13 Jun',hora:'16h'},
+      {c1:'ca',t1:'Canadá',c2:'qa',t2:'Catar',data:'17 Jun',hora:'16h'},
+      {c1:'ba',t1:'Bósnia',c2:'ch',t2:'Suíça',data:'17 Jun',hora:'22h'},
+      {c1:'ch',t1:'Suíça',c2:'ca',t2:'Canadá',data:'24 Jun',hora:'16h'},
+      {c1:'ba',t1:'Bósnia',c2:'qa',t2:'Catar',data:'24 Jun',hora:'16h'}]},
+  { letra:'C', brasil:true, selecoes:[
+    {nome:'Brasil',code:'br'},{nome:'Marrocos',code:'ma'},
+    {nome:'Escócia',code:'gb-sct'},{nome:'Haiti',code:'ht'}],
+    jogos:[
+      {c1:'br',t1:'Brasil',c2:'ma',t2:'Marrocos',data:'13 Jun',hora:'19h',brasil:true},
+      {c1:'gb-sct',t1:'Escócia',c2:'ht',t2:'Haiti',data:'13 Jun',hora:'22h'},
+      {c1:'br',t1:'Brasil',c2:'ht',t2:'Haiti',data:'19 Jun',hora:'21h',brasil:true},
+      {c1:'gb-sct',t1:'Escócia',c2:'ma',t2:'Marrocos',data:'19 Jun',hora:'19h'},
+      {c1:'ma',t1:'Marrocos',c2:'ht',t2:'Haiti',data:'24 Jun',hora:'19h'},
+      {c1:'gb-sct',t1:'Escócia',c2:'br',t2:'Brasil',data:'24 Jun',hora:'19h',brasil:true}]},
+  { letra:'D', brasil:false, selecoes:[
+    {nome:'EUA',code:'us'},{nome:'Paraguai',code:'py'},
+    {nome:'Austrália',code:'au'},{nome:'Turquia',code:'tr'}],
+    jogos:[
+      {c1:'us',t1:'EUA',c2:'py',t2:'Paraguai',data:'13 Jun',hora:'16h'},
+      {c1:'au',t1:'Austrália',c2:'tr',t2:'Turquia',data:'13 Jun',hora:'01h'},
+      {c1:'us',t1:'EUA',c2:'au',t2:'Austrália',data:'19 Jun',hora:'16h'},
+      {c1:'py',t1:'Paraguai',c2:'tr',t2:'Turquia',data:'20 Jun',hora:'01h'},
+      {c1:'tr',t1:'Turquia',c2:'us',t2:'EUA',data:'25 Jun',hora:'23h'},
+      {c1:'py',t1:'Paraguai',c2:'au',t2:'Austrália',data:'25 Jun',hora:'23h'}]},
+  { letra:'E', brasil:false, selecoes:[
+    {nome:'Alemanha',code:'de'},{nome:'Curaçao',code:'cw'},
+    {nome:'C.Marfim',code:'ci'},{nome:'Equador',code:'ec'}],
+    jogos:[
+      {c1:'de',t1:'Alemanha',c2:'cw',t2:'Curaçao',data:'14 Jun',hora:'14h'},
+      {c1:'ci',t1:'C.Marfim',c2:'ec',t2:'Equador',data:'14 Jun',hora:'20h'},
+      {c1:'de',t1:'Alemanha',c2:'ci',t2:'C.Marfim',data:'20 Jun',hora:'17h'},
+      {c1:'cw',t1:'Curaçao',c2:'ec',t2:'Equador',data:'20 Jun',hora:'20h'},
+      {c1:'ec',t1:'Equador',c2:'de',t2:'Alemanha',data:'25 Jun',hora:'16h'},
+      {c1:'ci',t1:'C.Marfim',c2:'cw',t2:'Curaçao',data:'25 Jun',hora:'16h'}]},
+  { letra:'F', brasil:false, selecoes:[
+    {nome:'Holanda',code:'nl'},{nome:'Japão',code:'jp'},
+    {nome:'Suécia',code:'se'},{nome:'Tunísia',code:'tn'}],
+    jogos:[
+      {c1:'nl',t1:'Holanda',c2:'jp',t2:'Japão',data:'14 Jun',hora:'16h'},
+      {c1:'se',t1:'Suécia',c2:'tn',t2:'Tunísia',data:'14 Jun',hora:'13h'},
+      {c1:'nl',t1:'Holanda',c2:'se',t2:'Suécia',data:'20 Jun',hora:'14h'},
+      {c1:'jp',t1:'Japão',c2:'tn',t2:'Tunísia',data:'20 Jun',hora:'22h'},
+      {c1:'tn',t1:'Tunísia',c2:'nl',t2:'Holanda',data:'25 Jun',hora:'22h'},
+      {c1:'jp',t1:'Japão',c2:'se',t2:'Suécia',data:'25 Jun',hora:'22h'}]},
+  { letra:'G', brasil:false, selecoes:[
+    {nome:'Bélgica',code:'be'},{nome:'Egito',code:'eg'},
+    {nome:'Irã',code:'ir'},{nome:'Nova Zelândia',code:'nz'}],
+    jogos:[
+      {c1:'be',t1:'Bélgica',c2:'eg',t2:'Egito',data:'15 Jun',hora:'14h'},
+      {c1:'ir',t1:'Irã',c2:'nz',t2:'Nova Zelândia',data:'15 Jun',hora:'00h'},
+      {c1:'be',t1:'Bélgica',c2:'ir',t2:'Irã',data:'21 Jun',hora:'14h'},
+      {c1:'eg',t1:'Egito',c2:'nz',t2:'Nova Zelândia',data:'21 Jun',hora:'00h'},
+      {c1:'nz',t1:'N.Zelândia',c2:'be',t2:'Bélgica',data:'26 Jun',hora:'00h'},
+      {c1:'eg',t1:'Egito',c2:'ir',t2:'Irã',data:'26 Jun',hora:'00h'}]},
+  { letra:'H', brasil:false, selecoes:[
+    {nome:'Espanha',code:'es'},{nome:'Cabo Verde',code:'cv'},
+    {nome:'Ar. Saudita',code:'sa'},{nome:'Uruguai',code:'uy'}],
+    jogos:[
+      {c1:'es',t1:'Espanha',c2:'cv',t2:'Cabo Verde',data:'15 Jun',hora:'13h'},
+      {c1:'sa',t1:'Ar.Saudita',c2:'uy',t2:'Uruguai',data:'15 Jun',hora:'19h'},
+      {c1:'es',t1:'Espanha',c2:'sa',t2:'Ar.Saudita',data:'21 Jun',hora:'13h'},
+      {c1:'uy',t1:'Uruguai',c2:'cv',t2:'Cabo Verde',data:'21 Jun',hora:'19h'},
+      {c1:'uy',t1:'Uruguai',c2:'es',t2:'Espanha',data:'26 Jun',hora:'21h'},
+      {c1:'cv',t1:'Cabo Verde',c2:'sa',t2:'Ar.Saudita',data:'26 Jun',hora:'21h'}]},
+  { letra:'I', brasil:false, selecoes:[
+    {nome:'França',code:'fr'},{nome:'Senegal',code:'sn'},
+    {nome:'Iraque',code:'iq'},{nome:'Noruega',code:'no'}],
+    jogos:[
+      {c1:'fr',t1:'França',c2:'sn',t2:'Senegal',data:'16 Jun',hora:'16h'},
+      {c1:'iq',t1:'Iraque',c2:'no',t2:'Noruega',data:'16 Jun',hora:'13h'},
+      {c1:'fr',t1:'França',c2:'iq',t2:'Iraque',data:'22 Jun',hora:'16h'},
+      {c1:'sn',t1:'Senegal',c2:'no',t2:'Noruega',data:'22 Jun',hora:'13h'},
+      {c1:'no',t1:'Noruega',c2:'fr',t2:'França',data:'27 Jun',hora:'19h'},
+      {c1:'sn',t1:'Senegal',c2:'iq',t2:'Iraque',data:'27 Jun',hora:'19h'}]},
+  { letra:'J', brasil:false, selecoes:[
+    {nome:'Argentina',code:'ar'},{nome:'Argélia',code:'dz'},
+    {nome:'Áustria',code:'at'},{nome:'Jordânia',code:'jo'}],
+    jogos:[
+      {c1:'ar',t1:'Argentina',c2:'dz',t2:'Argélia',data:'15 Jun',hora:'19h'},
+      {c1:'at',t1:'Áustria',c2:'jo',t2:'Jordânia',data:'16 Jun',hora:'01h'},
+      {c1:'ar',t1:'Argentina',c2:'at',t2:'Áustria',data:'22 Jun',hora:'19h'},
+      {c1:'dz',t1:'Argélia',c2:'jo',t2:'Jordânia',data:'22 Jun',hora:'01h'},
+      {c1:'jo',t1:'Jordânia',c2:'ar',t2:'Argentina',data:'27 Jun',hora:'22h'},
+      {c1:'dz',t1:'Argélia',c2:'at',t2:'Áustria',data:'27 Jun',hora:'22h'}]},
+  { letra:'K', brasil:false, selecoes:[
+    {nome:'Portugal',code:'pt'},{nome:'RD Congo',code:'cd'},
+    {nome:'Uzbequistão',code:'uz'},{nome:'Colômbia',code:'co'}],
+    jogos:[
+      {c1:'pt',t1:'Portugal',c2:'cd',t2:'RD Congo',data:'17 Jun',hora:'13h'},
+      {c1:'uz',t1:'Uzbequistão',c2:'co',t2:'Colômbia',data:'17 Jun',hora:'19h'},
+      {c1:'pt',t1:'Portugal',c2:'uz',t2:'Uzbequistão',data:'23 Jun',hora:'13h'},
+      {c1:'cd',t1:'RD Congo',c2:'co',t2:'Colômbia',data:'23 Jun',hora:'19h'},
+      {c1:'co',t1:'Colômbia',c2:'pt',t2:'Portugal',data:'27 Jun',hora:'16h'},
+      {c1:'cd',t1:'RD Congo',c2:'uz',t2:'Uzbequistão',data:'27 Jun',hora:'16h'}]},
+  { letra:'L', brasil:false, selecoes:[
+    {nome:'Inglaterra',code:'gb-eng'},{nome:'Croácia',code:'hr'},
+    {nome:'Gana',code:'gh'},{nome:'Panamá',code:'pa'}],
+    jogos:[
+      {c1:'gb-eng',t1:'Inglaterra',c2:'hr',t2:'Croácia',data:'18 Jun',hora:'16h'},
+      {c1:'gh',t1:'Gana',c2:'pa',t2:'Panamá',data:'18 Jun',hora:'13h'},
+      {c1:'gb-eng',t1:'Inglaterra',c2:'gh',t2:'Gana',data:'23 Jun',hora:'19h'},
+      {c1:'hr',t1:'Croácia',c2:'pa',t2:'Panamá',data:'23 Jun',hora:'16h'},
+      {c1:'pa',t1:'Panamá',c2:'gb-eng',t2:'Inglaterra',data:'27 Jun',hora:'13h'},
+      {c1:'hr',t1:'Croácia',c2:'gh',t2:'Gana',data:'27 Jun',hora:'13h'}]},
+];
+
+function flagUrl(code) { return `https://flagcdn.com/w40/${code}.png`; }
+
+function renderGrupos() {
+  const container = document.getElementById('grupos-container');
+  if (!container) return;
+
+  // Aplica dados do admin se existirem
+  GRUPOS.forEach(g => {
+    const dg = DADOS_GRUPOS[g.letra];
+    if (!dg) return;
+    if (dg.selecoes) {
+      g.selecoes.forEach((s,i) => { if(dg.selecoes[i]) Object.assign(s, dg.selecoes[i]); });
+      g.selecoes.sort((a,b) => {
+        if ((b.pts||0) !== (a.pts||0)) return (b.pts||0)-(a.pts||0);
+        const sA=(a.gp||0)-(a.gc||0), sB=(b.gp||0)-(b.gc||0);
+        if (sB!==sA) return sB-sA;
+        return (b.gp||0)-(a.gp||0);
+      });
+    }
+    if (dg.jogos) g.jogos.forEach((j,i) => { if(dg.jogos[i]) Object.assign(j, dg.jogos[i]); });
+  });
+
+  let html = '<div class="grupos-novo-grid">';
+  GRUPOS.forEach(g => {
+    html += `<div class="grupo-bloco${g.brasil?' brasil-grupo':''}">
+      <div class="grupo-bloco-header">
+        <span class="grupo-bloco-letra">${g.letra}</span>
+        <span class="grupo-bloco-titulo">GRUPO ${g.letra}${g.brasil?' — BRASIL 🇧🇷':''}</span>
+      </div>
+      <table class="grupo-tabela">
+        <thead><tr>
+          <th colspan="2">Seleção</th>
+          <th title="Jogos">PJ</th><th title="Vitórias">V</th>
+          <th title="Empates">E</th><th title="Derrotas">D</th>
+          <th title="Gols Pró">GP</th><th title="Gols Contra">GC</th>
+          <th title="Saldo">SG</th><th title="Pontos">PTS</th>
+        </tr></thead><tbody>`;
+
+    g.selecoes.forEach((s,i) => {
+      const isBr = s.code==='br';
+      const rowClass = isBr ? 'brasil-row' : (i<2 ? 'classificado' : '');
+      const saldo = (s.gp||0)-(s.gc||0);
+      html += `<tr class="${rowClass}">
+        <td class="td-pos">${i+1}</td>
+        <td><div class="td-selecao">
+          <img src="${flagUrl(s.code)}" alt="${s.nome}" onerror="this.style.display='none'">
+          <span class="sel-nome">${s.nome}</span>
+        </div></td>
+        <td>${s.pj||0}</td><td>${s.v||0}</td><td>${s.e||0}</td><td>${s.d||0}</td>
+        <td>${s.gp||0}</td><td>${s.gc||0}</td>
+        <td>${saldo>=0?'+'+saldo:saldo}</td>
+        <td class="td-pts">${s.pts||0}</td>
+      </tr>`;
+    });
+
+    html += `</tbody></table><div class="grupo-jogos">
+      <div class="grupo-jogos-label">Jogos</div>`;
+
+    g.jogos.forEach(j => {
+      const temPlacar = j.g1!==null && j.g1!==undefined && j.g2!==null && j.g2!==undefined;
+      html += `<div class="jogo-row${j.brasil?' brasil-jogo':''}">
+        <div class="jogo-time">
+          <img src="${flagUrl(j.c1)}" alt="${j.t1}" onerror="this.style.display='none'">
+          <span>${j.t1}</span>
+        </div>
+        <div class="jogo-placar">
+          ${temPlacar ? `<span class="placar-num">${j.g1} – ${j.g2}</span>` : `<span class="placar-hora">${j.hora} BRT</span>`}
+          <span class="placar-data">${j.data}</span>
+        </div>
+        <div class="jogo-time direita">
+          <span>${j.t2}</span>
+          <img src="${flagUrl(j.c2)}" alt="${j.t2}" onerror="this.style.display='none'">
+        </div>
+      </div>`;
+    });
+
+    html += `</div></div>`;
+  });
+
+  html += '</div>';
+  container.innerHTML = html;
+}
+
+renderGrupos();
+</script>
 
 <script>
   // ── APLICA TEXTOS DO ADMIN NAS SELEÇÕES ──
