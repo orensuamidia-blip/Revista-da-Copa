@@ -452,15 +452,23 @@ if(CORES.fundo)   document.documentElement.style.setProperty('--preto',  CORES.f
 
   /* ── GRUPOS ── */
   #grupos {
-    background: linear-gradient(180deg, var(--preto) 0%, var(--cinza-escuro) 100%);
+    background: linear-gradient(180deg, var(--cinza-escuro) 0%, #0a0a0a 100%);
+    padding-top: 5rem;
+    padding-bottom: 5rem;
   }
 
   /* ── CARROSSEL DE GRUPOS ── */
+  /* ══════════════════════════════
+     CARROSSEL — REDESIGN MODERNO
+  ══════════════════════════════ */
   .carrossel-wrap {
     display: flex;
     align-items: stretch;
     gap: 0;
     position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
   }
 
   .carrossel-stage {
@@ -469,11 +477,11 @@ if(CORES.fundo)   document.documentElement.style.setProperty('--preto',  CORES.f
   }
 
   .carrossel-seta {
-    background: rgba(0,0,0,0.5);
-    border: 1px solid rgba(255,255,255,0.1);
-    color: var(--amarelo);
-    font-size: 1.8rem;
-    width: 52px;
+    background: rgba(0,0,0,0.7);
+    border: none;
+    color: rgba(255,255,255,0.5);
+    font-size: 1.5rem;
+    width: 48px;
     flex-shrink: 0;
     cursor: pointer;
     transition: all 0.2s;
@@ -481,74 +489,78 @@ if(CORES.fundo)   document.documentElement.style.setProperty('--preto',  CORES.f
     align-items: center;
     justify-content: center;
     z-index: 2;
+    backdrop-filter: blur(8px);
   }
 
   .carrossel-seta:hover {
     background: var(--amarelo);
     color: var(--preto);
-    border-color: var(--amarelo);
   }
 
   .carrossel-seta:disabled {
-    opacity: 0.2;
+    opacity: 0;
     cursor: default;
     pointer-events: none;
   }
 
-  .carrossel-seta.esquerda { border-right: none; }
-  .carrossel-seta.direita  { border-left: none; }
-
   /* Slides */
   .grupos-carrossel {
     display: flex;
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
     will-change: transform;
   }
 
   .grupo-slide {
     min-width: 100%;
-    padding: 0 1px;
+    padding: 0;
   }
 
-  /* Indicadores (dots) */
+  /* Dots modernos */
   .carrossel-indicadores {
     display: flex;
     justify-content: center;
-    gap: 0.5rem;
+    gap: 0.4rem;
     margin-top: 1.25rem;
     flex-wrap: wrap;
+    align-items: center;
   }
 
   .carrossel-dot {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     letter-spacing: 1px;
-    width: 32px;
-    height: 32px;
+    width: 34px;
+    height: 34px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(255,255,255,0.15);
-    color: var(--texto-suave);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.3);
     cursor: pointer;
-    transition: all 0.2s;
-    background: transparent;
+    transition: all 0.25s;
+    background: rgba(255,255,255,0.03);
+    border-radius: 2px;
   }
 
   .carrossel-dot:hover {
-    border-color: var(--verde);
-    color: var(--verde);
+    border-color: rgba(255,255,255,0.4);
+    color: var(--branco);
+    background: rgba(255,255,255,0.08);
+    transform: translateY(-2px);
   }
 
   .carrossel-dot.active {
     background: var(--amarelo);
     border-color: var(--amarelo);
     color: var(--preto);
+    font-weight: 700;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(255,223,0,0.4);
   }
 
   .carrossel-dot.brasil-dot {
-    border-color: rgba(255,223,0,0.4);
-    color: var(--amarelo);
+    border-color: rgba(255,223,0,0.3);
+    color: rgba(255,223,0,0.6);
   }
 
   .carrossel-dot.brasil-dot.active {
@@ -557,94 +569,135 @@ if(CORES.fundo)   document.documentElement.style.setProperty('--preto',  CORES.f
   }
 
   @media (max-width: 600px) {
-    .carrossel-seta { width: 36px; font-size: 1.2rem; }
-  }
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 2rem;
+    .carrossel-seta { width: 36px; font-size: 1.1rem; }
+    .carrossel-dot { width: 28px; height: 28px; font-size: 0.62rem; }
   }
 
+  /* ══════════════════════════════
+     CARDS DOS GRUPOS — REDESIGN
+  ══════════════════════════════ */
   .grupo-bloco {
-    background: var(--cinza-escuro);
-    border: 1px solid rgba(255,255,255,0.08);
+    background: linear-gradient(160deg, #1a1a1a 0%, #111 100%);
+    border: none;
     overflow: hidden;
+    position: relative;
+  }
+
+  /* Linha de cor lateral esquerda */
+  .grupo-bloco::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: linear-gradient(90deg, var(--verde), transparent);
   }
 
   .grupo-bloco.brasil-grupo {
-    border-color: rgba(255,223,0,0.3);
-    box-shadow: 0 0 20px rgba(255,223,0,0.05);
+    background: linear-gradient(160deg, #1a1800 0%, #111 100%);
   }
 
+  .grupo-bloco.brasil-grupo::before {
+    background: linear-gradient(90deg, var(--amarelo), transparent);
+  }
+
+  /* HEADER DO GRUPO */
   .grupo-bloco-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.85rem 1.2rem;
-    background: rgba(0,0,0,0.4);
+    padding: 1rem 1.4rem;
+    background: rgba(0,0,0,0.5);
     border-bottom: 1px solid rgba(255,255,255,0.06);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .grupo-bloco-header::after {
+    content: attr(data-letra);
+    position: absolute;
+    right: -0.25rem;
+    top: -0.5rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 5rem;
+    color: rgba(255,255,255,0.03);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
   }
 
   .grupo-bloco-letra {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     color: var(--verde);
     line-height: 1;
+    text-shadow: 0 0 20px rgba(0,156,59,0.4);
   }
 
-  .brasil-grupo .grupo-bloco-letra { color: var(--amarelo); }
+  .brasil-grupo .grupo-bloco-letra {
+    color: var(--amarelo);
+    text-shadow: 0 0 20px rgba(255,223,0,0.4);
+  }
 
   .grupo-bloco-titulo {
     font-family: 'Oswald', sans-serif;
-    font-size: 0.7rem;
-    letter-spacing: 2px;
+    font-size: 0.65rem;
+    letter-spacing: 3px;
     text-transform: uppercase;
-    color: var(--texto-suave);
+    color: rgba(255,255,255,0.4);
   }
 
-  .brasil-grupo .grupo-bloco-titulo { color: var(--amarelo); }
+  .brasil-grupo .grupo-bloco-titulo {
+    color: rgba(255,223,0,0.7);
+  }
 
+  /* TABELA DE CLASSIFICAÇÃO */
   .grupo-tabela {
     width: 100%;
     border-collapse: collapse;
     font-family: 'Oswald', sans-serif;
   }
 
-  .grupo-tabela thead tr { background: rgba(0,0,0,0.3); }
-
-  .grupo-tabela thead th {
-    font-size: 0.6rem;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--texto-suave);
-    padding: 5px 6px;
-    text-align: center;
-    font-weight: 400;
+  .grupo-tabela thead tr {
+    background: rgba(0,0,0,0.4);
   }
 
-  .grupo-tabela thead th:first-child { text-align: left; padding-left: 12px; }
+  .grupo-tabela thead th {
+    font-size: 0.55rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    padding: 6px 6px;
+    text-align: center;
+    font-weight: 400;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .grupo-tabela thead th:first-child { text-align: left; padding-left: 1.4rem; }
 
   .grupo-tabela tbody tr {
     border-bottom: 1px solid rgba(255,255,255,0.04);
     transition: background 0.15s;
   }
 
-  .grupo-tabela tbody tr:hover { background: rgba(255,255,255,0.03); }
+  .grupo-tabela tbody tr:hover { background: rgba(255,255,255,0.04); }
 
-  .grupo-tabela tbody tr.classificado { border-left: 3px solid var(--verde); }
+  .grupo-tabela tbody tr.classificado {
+    border-left: 3px solid var(--verde);
+  }
 
   .grupo-tabela tbody tr.brasil-row {
     border-left: 3px solid var(--amarelo);
-    background: rgba(255,223,0,0.04);
+    background: rgba(255,223,0,0.03);
   }
 
   .grupo-tabela td {
-    padding: 7px 6px;
+    padding: 8px 6px;
     font-size: 0.82rem;
-    color: var(--texto);
+    color: rgba(255,255,255,0.7);
     text-align: center;
   }
 
-  .grupo-tabela td:first-child { text-align: left; padding-left: 10px; }
+  .grupo-tabela td:first-child { text-align: left; padding-left: 1.4rem; }
 
   .td-selecao {
     display: flex;
@@ -654,32 +707,49 @@ if(CORES.fundo)   document.documentElement.style.setProperty('--preto',  CORES.f
   }
 
   .td-selecao img {
-    width: 22px;
-    height: 15px;
+    width: 24px;
+    height: 16px;
     object-fit: cover;
     border-radius: 2px;
     flex-shrink: 0;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.4);
   }
 
-  .td-selecao .sel-nome { font-size: 0.83rem; color: var(--branco); }
-  .td-pts { font-weight: 600; color: var(--amarelo) !important; font-size: 0.9rem !important; }
-  .td-pos { font-size: 0.75rem; color: var(--texto-suave); width: 22px; }
+  .td-selecao .sel-nome {
+    font-size: 0.85rem;
+    color: var(--branco);
+    font-weight: 500;
+  }
 
+  .td-pts {
+    font-weight: 700;
+    color: var(--amarelo) !important;
+    font-size: 1rem !important;
+  }
+
+  .td-pos {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.2);
+    width: 20px;
+  }
+
+  /* SEÇÃO DE JOGOS */
   .grupo-jogos {
-    padding: 0.75rem 1rem;
+    padding: 0.85rem 1rem;
     border-top: 1px solid rgba(255,255,255,0.05);
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    gap: 0.35rem;
+    background: rgba(0,0,0,0.2);
   }
 
   .grupo-jogos-label {
     font-family: 'Oswald', sans-serif;
-    font-size: 0.6rem;
-    letter-spacing: 2px;
+    font-size: 0.55rem;
+    letter-spacing: 3px;
     text-transform: uppercase;
-    color: var(--texto-suave);
-    padding: 4px 0 2px;
+    color: rgba(255,255,255,0.2);
+    padding: 2px 0 4px;
   }
 
   .jogo-row {
@@ -687,55 +757,76 @@ if(CORES.fundo)   document.documentElement.style.setProperty('--preto',  CORES.f
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
     gap: 0.5rem;
-    padding: 5px 6px;
-    background: rgba(0,0,0,0.2);
+    padding: 6px 8px;
+    background: rgba(255,255,255,0.02);
     border: 1px solid rgba(255,255,255,0.04);
+    border-radius: 2px;
     font-family: 'Oswald', sans-serif;
+    transition: background 0.15s;
   }
 
-  .jogo-row.brasil-jogo { border-color: rgba(255,223,0,0.15); }
+  .jogo-row:hover { background: rgba(255,255,255,0.05); }
+
+  .jogo-row.brasil-jogo {
+    border-color: rgba(255,223,0,0.12);
+    background: rgba(255,223,0,0.02);
+  }
 
   .jogo-time {
     display: flex;
     align-items: center;
-    gap: 6px;
-    font-size: 0.8rem;
-    color: var(--texto);
+    gap: 7px;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.75);
   }
 
   .jogo-time img {
-    width: 20px;
-    height: 14px;
+    width: 22px;
+    height: 15px;
     object-fit: cover;
     border-radius: 2px;
     flex-shrink: 0;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.4);
   }
 
-  .jogo-time.direita { justify-content: flex-end; text-align: right; }
+  .jogo-time.direita {
+    justify-content: flex-end;
+    text-align: right;
+  }
 
-  .jogo-placar { text-align: center; white-space: nowrap; }
+  .jogo-placar {
+    text-align: center;
+    white-space: nowrap;
+    min-width: 60px;
+  }
 
   .placar-num {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: var(--branco);
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     display: block;
+    line-height: 1;
   }
 
   .placar-data {
-    font-size: 0.58rem;
-    color: var(--texto-suave);
+    font-size: 0.55rem;
+    color: rgba(255,255,255,0.25);
     letter-spacing: 1px;
     text-transform: uppercase;
     display: block;
+    margin-top: 2px;
   }
 
-  .placar-hora { font-size: 0.6rem; color: var(--verde); display: block; }
+  .placar-hora {
+    font-size: 0.58rem;
+    color: var(--verde);
+    display: block;
+    font-weight: 600;
+  }
 
   @media (max-width: 768px) {
-    .grupos-novo-grid { grid-template-columns: 1fr; }
-    .jogo-time span { font-size: 0.7rem; }
+    .jogo-time span { font-size: 0.68rem; }
   }
 
   .grupos-grid {
@@ -1216,6 +1307,166 @@ if(CORES.fundo)   document.documentElement.style.setProperty('--preto',  CORES.f
     color: var(--texto-suave);
     margin-top: 3px;
   }
+    letter-spacing: 2px;
+    font-weight: 300;
+    color: var(--texto-suave);
+    margin-top: 3px;
+  }
+
+  /* ══ SPLASH ══ */
+  #splash {
+    position: fixed; inset: 0; z-index: 9999;
+    background: #000;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+  }
+  #splash.hide { opacity: 0; visibility: hidden; pointer-events: none; }
+  .splash-ball { font-size: 3.5rem; animation: splashBall 1s ease infinite alternate; margin-bottom: 1.5rem; }
+  @keyframes splashBall { from{transform:translateY(-8px)} to{transform:translateY(8px)} }
+  .splash-titulo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 10vw, 5rem);
+    color: var(--amarelo); letter-spacing: 4px; line-height: 1;
+    text-align: center; text-shadow: 0 0 40px rgba(255,223,0,0.3);
+  }
+  .splash-sub {
+    font-family: 'Oswald', sans-serif; font-size: 0.75rem;
+    letter-spacing: 4px; text-transform: uppercase;
+    color: rgba(255,255,255,0.4); margin-top: 0.5rem;
+  }
+  .splash-bar { width: 120px; height: 2px; background: rgba(255,255,255,0.1); margin-top: 2rem; overflow: hidden; }
+  .splash-fill { height: 100%; background: var(--amarelo); animation: splashLoad 2.2s ease forwards; width: 0%; }
+  @keyframes splashLoad { to { width: 100%; } }
+
+  /* ══ CRAQUES ══ */
+  #craques { background: var(--preto); padding: 5rem 2rem; max-width: 100%; }
+  .craques-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.25rem; max-width: 1200px; margin: 0 auto;
+  }
+  .craque-card {
+    background: var(--cinza-escuro); border: 1px solid rgba(255,255,255,0.06);
+    overflow: hidden; position: relative; transition: all 0.3s;
+  }
+  .craque-card:hover { border-color: rgba(255,223,0,0.3); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.5); }
+  .craque-bandeira-topo { height: 3px; width: 100%; }
+  .craque-emoji { font-size: 3.5rem; text-align: center; display: block; padding: 1.25rem 0 0.25rem; }
+  .craque-info { padding: 0 1rem 1.1rem; }
+  .craque-nome { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: var(--branco); line-height: 1; display: block; margin-bottom: 2px; }
+  .craque-pais {
+    font-family: 'Oswald', sans-serif; font-size: 0.65rem; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--texto-suave);
+    display: flex; align-items: center; gap: 5px; margin-bottom: 0.6rem;
+  }
+  .craque-pais img { width: 18px; height: 12px; object-fit: cover; border-radius: 1px; }
+  .craque-pos { font-family: 'Oswald', sans-serif; font-size: 0.58rem; letter-spacing: 1.5px; text-transform: uppercase; padding: 2px 7px; display: inline-block; margin-bottom: 0.5rem; }
+  .craque-pos.atk { background: rgba(255,50,50,0.12); color: #ff6b6b; border: 1px solid rgba(255,50,50,0.2); }
+  .craque-pos.mid { background: rgba(255,223,0,0.1); color: var(--amarelo); border: 1px solid rgba(255,223,0,0.2); }
+  .craque-pos.def { background: rgba(0,156,59,0.1); color: var(--verde); border: 1px solid rgba(0,156,59,0.2); }
+  .craque-pos.gol { background: rgba(100,100,255,0.1); color: #8888ff; border: 1px solid rgba(100,100,255,0.2); }
+  .craque-clube { font-family: 'Oswald', sans-serif; font-size: 0.7rem; color: var(--texto-suave); }
+  .craque-destaque-badge { position: absolute; top: 0.6rem; right: 0.6rem; font-size: 0.75rem; }
+
+  /* ══ HISTÓRIA ══ */
+  #historia {
+    background: linear-gradient(180deg, var(--preto) 0%, #001a08 100%);
+    padding: 5rem 2rem; overflow: hidden; position: relative;
+  }
+  #historia::before {
+    content: '5'; position: absolute; right: -2rem; top: 50%; transform: translateY(-50%);
+    font-family: 'Bebas Neue', sans-serif; font-size: 40vw; color: rgba(0,156,59,0.03);
+    line-height: 1; pointer-events: none;
+  }
+  .historia-wrap { max-width: 900px; margin: 0 auto; }
+  .historia-timeline { position: relative; padding-left: 2rem; }
+  .historia-timeline::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 2px; background: linear-gradient(180deg, var(--amarelo), var(--verde), transparent);
+  }
+  .historia-item {
+    position: relative; padding: 0 0 3rem 2rem;
+    opacity: 0; transform: translateX(-20px); transition: all 0.6s ease;
+  }
+  .historia-item.visible { opacity: 1; transform: translateX(0); }
+  .historia-item::before {
+    content: ''; position: absolute; left: -6px; top: 10px;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--amarelo); box-shadow: 0 0 12px rgba(255,223,0,0.5);
+    border: 2px solid var(--preto);
+  }
+  .historia-ano { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: var(--amarelo); line-height: 1; display: block; }
+  .historia-pais { font-family: 'Oswald', sans-serif; font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--verde); margin-bottom: 0.4rem; }
+  .historia-titulo { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; color: var(--branco); margin-bottom: 0.4rem; }
+  .historia-desc { font-size: 0.88rem; color: var(--texto-suave); line-height: 1.7; max-width: 600px; }
+  .historia-artilheiro {
+    display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 0.75rem;
+    background: rgba(255,223,0,0.06); border: 1px solid rgba(255,223,0,0.15);
+    padding: 4px 12px; font-family: 'Oswald', sans-serif;
+    font-size: 0.68rem; color: var(--amarelo); letter-spacing: 1px;
+  }
+
+  /* ══ PROMOÇÕES ══ */
+  #promocoes { background: linear-gradient(135deg, #0a0500 0%, var(--preto) 100%); padding: 5rem 2rem; }
+  .promocoes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 0 auto; }
+  .promo-card {
+    background: var(--cinza-escuro); border: 1px solid rgba(255,255,255,0.06);
+    overflow: hidden; position: relative; transition: all 0.3s;
+  }
+  .promo-card:hover { border-color: rgba(255,223,0,0.3); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
+  .promo-badge-topo {
+    position: absolute; top: 0.85rem; right: 0.85rem;
+    background: var(--amarelo); color: var(--preto);
+    font-family: 'Bebas Neue', sans-serif; font-size: 0.82rem;
+    letter-spacing: 1px; padding: 2px 9px; z-index: 1;
+  }
+  .promo-emoji-wrap { font-size: 3rem; text-align: center; padding: 1.75rem 0 0.75rem; display: block; }
+  .promo-body { padding: 0 1.25rem 1.5rem; }
+  .promo-titulo { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; color: var(--branco); line-height: 1.1; margin-bottom: 0.5rem; }
+  .promo-desc { font-size: 0.83rem; color: var(--texto-suave); line-height: 1.6; margin-bottom: 0.75rem; }
+  .promo-preco { font-family: 'Bebas Neue', sans-serif; font-size: 1.7rem; color: var(--amarelo); display: block; margin-bottom: 0.2rem; }
+  .promo-validade { font-family: 'Oswald', sans-serif; font-size: 0.62rem; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.2); }
+  .promo-vazia { grid-column: 1/-1; text-align: center; padding: 4rem 2rem; color: var(--texto-suave); font-size: 0.9rem; border: 1px dashed rgba(255,255,255,0.08); }
+  .btn-cardapio {
+    display: inline-flex; align-items: center; gap: 0.75rem;
+    background: var(--amarelo); color: var(--preto);
+    font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 2px;
+    padding: 14px 32px; text-decoration: none; border: none; cursor: pointer; transition: all 0.2s; margin-top: 2rem;
+  }
+  .btn-cardapio:hover { background: var(--verde); color: var(--branco); transform: translateY(-2px); }
+
+  /* ══ FEEDBACK ══ */
+  #feedback { background: var(--cinza-escuro); padding: 5rem 2rem; }
+  .feedback-wrap { max-width: 680px; margin: 0 auto; }
+  .feedback-form { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.06); padding: 2rem; }
+  .feedback-estrelas { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; justify-content: center; }
+  .estrela { font-size: 2rem; cursor: pointer; opacity: 0.25; transition: all 0.15s; user-select: none; }
+  .estrela.ativa { opacity: 1; filter: drop-shadow(0 0 6px rgba(255,223,0,0.5)); }
+  .estrela:hover { transform: scale(1.2); opacity: 1; }
+  .feedback-input {
+    width: 100%; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.08);
+    color: var(--branco); font-family: 'Source Serif 4', serif; font-size: 0.92rem;
+    padding: 1rem; resize: none; outline: none; min-height: 110px;
+    transition: border 0.2s; margin-bottom: 0.75rem;
+  }
+  .feedback-input:focus { border-color: rgba(255,223,0,0.3); }
+  .feedback-input::placeholder { color: rgba(255,255,255,0.2); }
+  .feedback-nome {
+    width: 100%; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.08);
+    color: var(--branco); font-family: 'Oswald', sans-serif; font-size: 0.88rem;
+    padding: 0.75rem 1rem; outline: none; transition: border 0.2s; margin-bottom: 0.75rem;
+  }
+  .feedback-nome:focus { border-color: rgba(255,223,0,0.3); }
+  .feedback-nome::placeholder { color: rgba(255,255,255,0.2); }
+  .btn-feedback { width: 100%; background: var(--verde); color: var(--branco); font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 2px; padding: 13px; border: none; cursor: pointer; transition: background 0.2s; }
+  .btn-feedback:hover { background: #00c44a; }
+  .feedback-lista { margin-top: 2rem; display: flex; flex-direction: column; gap: 0.75rem; }
+  .feedback-item { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05); padding: 1rem 1.25rem; animation: fadeIn 0.4s ease; }
+  .feedback-item-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.4rem; }
+  .feedback-item-nome { font-family: 'Oswald', sans-serif; font-size: 0.82rem; color: var(--amarelo); font-weight: 600; }
+  .feedback-item-estrelas { font-size: 0.75rem; }
+  .feedback-item-txt { font-size: 0.85rem; color: var(--texto-suave); line-height: 1.6; font-style: italic; }
+
   footer {
     background: var(--preto);
     border-top: 2px solid var(--verde);
@@ -1362,6 +1613,14 @@ if(CORES.fundo)   document.documentElement.style.setProperty('--preto',  CORES.f
 </head>
 <body>
 
+<!-- SPLASH SCREEN -->
+<div id="splash">
+  <div class="splash-ball">⚽</div>
+  <div class="splash-titulo">FANZONE<br>2026</div>
+  <div class="splash-sub">Experiência Digital · Copa do Mundo</div>
+  <div class="splash-bar"><div class="splash-fill"></div></div>
+</div>
+
 <!-- NAV -->
 <nav>
   <a href="#inicio" class="nav-logo">COPA<span>26</span></a>
@@ -1370,8 +1629,11 @@ if(CORES.fundo)   document.documentElement.style.setProperty('--preto',  CORES.f
     <li><a href="#sedes">Sedes</a></li>
     <li><a href="#grupos">Grupos</a></li>
     <li><a href="#selecoes">Seleções</a></li>
-    <li><a href="#continentes">Continentes</a></li>
-    <li><a href="#informacoes">Informações</a></li>
+    <li><a href="#craques">Craques</a></li>
+    <li><a href="#historia">História</a></li>
+    <li><a href="#promocoes">Promoções</a></li>
+    <li><a href="#continentes">Classificadas</a></li>
+    <li><a href="#feedback">Feedback</a></li>
   </ul>
   <div class="hamburger" onclick="toggleNav()">
     <span></span><span></span><span></span>
@@ -2246,17 +2508,262 @@ if(CORES.fundo)   document.documentElement.style.setProperty('--preto',  CORES.f
   </div>
 </section>
 
+<!-- CRAQUES DA COPA -->
+<section id="craques" class="fade-in">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="section-label">Os melhores do planeta</div>
+    <h2 class="section-titulo">CRAQUES DA <span>COPA</span></h2>
+    <div class="divider"></div>
+    <div class="craques-grid">
+
+      <div class="craque-card">
+        <div class="craque-bandeira-topo" style="background:linear-gradient(90deg,#009c3b,#ffdf00,#002776)"></div>
+        <div class="craque-destaque-badge">⭐</div>
+        <span class="craque-emoji">🇧🇷</span>
+        <div class="craque-info">
+          <span class="craque-nome">Vinicius Jr.</span>
+          <div class="craque-pais"><img src="https://flagcdn.com/w40/br.png" alt="Brasil"> Brasil</div>
+          <span class="craque-pos atk">Atacante</span>
+          <div class="craque-clube">Real Madrid · ESP</div>
+        </div>
+      </div>
+
+      <div class="craque-card">
+        <div class="craque-bandeira-topo" style="background:linear-gradient(90deg,#74acdf,#fff,#74acdf)"></div>
+        <div class="craque-destaque-badge">🐐</div>
+        <span class="craque-emoji">🇦🇷</span>
+        <div class="craque-info">
+          <span class="craque-nome">Lionel Messi</span>
+          <div class="craque-pais"><img src="https://flagcdn.com/w40/ar.png" alt="Argentina"> Argentina</div>
+          <span class="craque-pos atk">Atacante</span>
+          <div class="craque-clube">Inter Miami · EUA</div>
+        </div>
+      </div>
+
+      <div class="craque-card">
+        <div class="craque-bandeira-topo" style="background:linear-gradient(90deg,#002395,#fff,#ed2939)"></div>
+        <div class="craque-destaque-badge">⚡</div>
+        <span class="craque-emoji">🇫🇷</span>
+        <div class="craque-info">
+          <span class="craque-nome">Kylian Mbappé</span>
+          <div class="craque-pais"><img src="https://flagcdn.com/w40/fr.png" alt="França"> França</div>
+          <span class="craque-pos atk">Atacante</span>
+          <div class="craque-clube">Real Madrid · ESP</div>
+        </div>
+      </div>
+
+      <div class="craque-card">
+        <div class="craque-bandeira-topo" style="background:linear-gradient(90deg,#aa151b,#f1bf00,#aa151b)"></div>
+        <span class="craque-emoji">🇪🇸</span>
+        <div class="craque-info">
+          <span class="craque-nome">Lamine Yamal</span>
+          <div class="craque-pais"><img src="https://flagcdn.com/w40/es.png" alt="Espanha"> Espanha</div>
+          <span class="craque-pos atk">Atacante</span>
+          <div class="craque-clube">Barcelona · ESP</div>
+        </div>
+      </div>
+
+      <div class="craque-card">
+        <div class="craque-bandeira-topo" style="background:linear-gradient(90deg,#000,#dd0000,#ffce00)"></div>
+        <span class="craque-emoji">🇩🇪</span>
+        <div class="craque-info">
+          <span class="craque-nome">Jamal Musiala</span>
+          <div class="craque-pais"><img src="https://flagcdn.com/w40/de.png" alt="Alemanha"> Alemanha</div>
+          <span class="craque-pos mid">Meia</span>
+          <div class="craque-clube">Bayern München · ALE</div>
+        </div>
+      </div>
+
+      <div class="craque-card">
+        <div class="craque-bandeira-topo" style="background:linear-gradient(90deg,#006600,#cc0000,#006600)"></div>
+        <span class="craque-emoji">🇵🇹</span>
+        <div class="craque-info">
+          <span class="craque-nome">Bruno Fernandes</span>
+          <div class="craque-pais"><img src="https://flagcdn.com/w40/pt.png" alt="Portugal"> Portugal</div>
+          <span class="craque-pos mid">Meia</span>
+          <div class="craque-clube">Man. United · ING</div>
+        </div>
+      </div>
+
+      <div class="craque-card">
+        <div class="craque-bandeira-topo" style="background:linear-gradient(90deg,#012169,#fff,#c8102e)"></div>
+        <span class="craque-emoji">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span>
+        <div class="craque-info">
+          <span class="craque-nome">Jude Bellingham</span>
+          <div class="craque-pais"><img src="https://flagcdn.com/w40/gb-eng.png" alt="Inglaterra"> Inglaterra</div>
+          <span class="craque-pos mid">Meia</span>
+          <div class="craque-clube">Real Madrid · ESP</div>
+        </div>
+      </div>
+
+      <div class="craque-card">
+        <div class="craque-bandeira-topo" style="background:linear-gradient(90deg,#74acdf,#fff,#74acdf)"></div>
+        <span class="craque-emoji">🇦🇷</span>
+        <div class="craque-info">
+          <span class="craque-nome">Julián Álvarez</span>
+          <div class="craque-pais"><img src="https://flagcdn.com/w40/ar.png" alt="Argentina"> Argentina</div>
+          <span class="craque-pos atk">Atacante</span>
+          <div class="craque-clube">Atlético Madrid · ESP</div>
+        </div>
+      </div>
+
+      <div class="craque-card">
+        <div class="craque-bandeira-topo" style="background:linear-gradient(90deg,#009c3b,#ffdf00,#002776)"></div>
+        <span class="craque-emoji">🇧🇷</span>
+        <div class="craque-info">
+          <span class="craque-nome">Raphinha</span>
+          <div class="craque-pais"><img src="https://flagcdn.com/w40/br.png" alt="Brasil"> Brasil</div>
+          <span class="craque-pos atk">Atacante</span>
+          <div class="craque-clube">Barcelona · ESP</div>
+        </div>
+      </div>
+
+      <div class="craque-card">
+        <div class="craque-bandeira-topo" style="background:linear-gradient(90deg,#aa151b,#f1bf00,#aa151b)"></div>
+        <span class="craque-emoji">🇪🇸</span>
+        <div class="craque-info">
+          <span class="craque-nome">Pedri</span>
+          <div class="craque-pais"><img src="https://flagcdn.com/w40/es.png" alt="Espanha"> Espanha</div>
+          <span class="craque-pos mid">Meia</span>
+          <div class="craque-clube">Barcelona · ESP</div>
+        </div>
+      </div>
+
+      <div class="craque-card">
+        <div class="craque-bandeira-topo" style="background:linear-gradient(90deg,#006600,#cc0000,#006600)"></div>
+        <div class="craque-destaque-badge">👑</div>
+        <span class="craque-emoji">🇵🇹</span>
+        <div class="craque-info">
+          <span class="craque-nome">Cristiano Ronaldo</span>
+          <div class="craque-pais"><img src="https://flagcdn.com/w40/pt.png" alt="Portugal"> Portugal</div>
+          <span class="craque-pos atk">Atacante</span>
+          <div class="craque-clube">Al Nassr · ARS</div>
+        </div>
+      </div>
+
+      <div class="craque-card">
+        <div class="craque-bandeira-topo" style="background:linear-gradient(90deg,#009c3b,#ffdf00,#002776)"></div>
+        <span class="craque-emoji">🇧🇷</span>
+        <div class="craque-info">
+          <span class="craque-nome">Rodrygo</span>
+          <div class="craque-pais"><img src="https://flagcdn.com/w40/br.png" alt="Brasil"> Brasil</div>
+          <span class="craque-pos atk">Atacante</span>
+          <div class="craque-clube">Real Madrid · ESP</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HISTÓRIA DO BRASIL -->
+<section id="historia" class="fade-in">
+  <div class="historia-wrap">
+    <div class="section-label" style="max-width:none;">A maior campeã do mundo</div>
+    <h2 class="section-titulo">HISTÓRIA DO <span>BRASIL</span> NAS COPAS</h2>
+    <div class="divider"></div>
+    <div class="historia-timeline">
+
+      <div class="historia-item fade-in">
+        <span class="historia-ano">1958</span>
+        <div class="historia-pais">🇸🇪 Suécia · Primeiro Título</div>
+        <div class="historia-titulo">A Revelação de um Gênio</div>
+        <p class="historia-desc">Um garoto de 17 anos chamado Pelé apareceu para o mundo. O Brasil venceu o torneio invicto, com 6 vitórias e um empate, conquistando seu primeiro título mundial em solo europeu com uma geração liderada por Garrincha, Didi e o jovem prodígio da Santos.</p>
+        <div class="historia-artilheiro">⚽ Artilheiro: Just Fontaine (FRA) · 13 gols · Pelé marcou 6</div>
+      </div>
+
+      <div class="historia-item fade-in">
+        <span class="historia-ano">1962</span>
+        <div class="historia-pais">🇨🇱 Chile · Bicampeonato</div>
+        <div class="historia-titulo">A Copa de Garrincha</div>
+        <p class="historia-desc">Com Pelé lesionado logo na segunda partida, Garrincha assumiu o protagonismo e conduziu o Brasil ao bicampeonato. Considerado o melhor jogador do torneio, Garrincha foi simplesmente inegável — dribblando, marcando e encantando.</p>
+        <div class="historia-artilheiro">⚽ Artilheiro: Garrincha, Vavá, Sándor, Jerković · 4 gols cada</div>
+      </div>
+
+      <div class="historia-item fade-in">
+        <span class="historia-ano">1970</span>
+        <div class="historia-pais">🇲🇽 México · Tricampeonato</div>
+        <div class="historia-titulo">O Time Mais Bonito da História</div>
+        <p class="historia-desc">Considerado por muitos o melhor time de futebol de todos os tempos. Pelé, Rivelino, Tostão, Jairzinho e Clodoaldo formaram uma equipe que não perdeu um único jogo. O Brasil conquistou a taça Jules Rimet em definitivo ao vencer pela 3ª vez.</p>
+        <div class="historia-artilheiro">⚽ Artilheiro: Gerd Müller (ALE) · 10 gols · Jairzinho marcou em todos jogos</div>
+      </div>
+
+      <div class="historia-item fade-in">
+        <span class="historia-ano">1994</span>
+        <div class="historia-pais">🇺🇸 Estados Unidos · Tetracampeonato</div>
+        <div class="historia-titulo">O Fim do Jejum de 24 Anos</div>
+        <p class="historia-desc">Após 24 anos sem títulos, o Brasil voltou a ser campeão nos Estados Unidos. Com Romário e Bebeto formando uma das duplas mais letais da história, a seleção venceu a Itália na final por pênaltis, após 0x0 no tempo normal — o primeiro título decidido dessa forma.</p>
+        <div class="historia-artilheiro">⚽ Artilheiro: Oleg Salenko (RUS) e Hristo Stoichkov · 6 gols</div>
+      </div>
+
+      <div class="historia-item fade-in">
+        <span class="historia-ano">2002</span>
+        <div class="historia-pais">🇯🇵🇰🇷 Japão/Coreia · Pentacampeonato</div>
+        <div class="historia-titulo">O Hexa Ainda Espera</div>
+        <p class="historia-desc">Ronaldo, que havia sofrido convulsão misteriosamente antes da final de 1998, se redimiu de forma épica: marcou os dois gols na final contra a Alemanha (2x0). Com Ronaldinho Gaúcho, Roberto Carlos e uma seleção completa, o Brasil chegou ao seu 5º título — o recorde mundial.</p>
+        <div class="historia-artilheiro">⚽ Artilheiro: Ronaldo · 8 gols · Melhor jogador do torneio</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROMOÇÕES DO RESTAURANTE -->
+<section id="promocoes" class="fade-in">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="section-label">Ofertas exclusivas</div>
+    <h2 class="section-titulo">PROMOÇÕES <span>DO DIA</span></h2>
+    <div class="divider"></div>
+    <div class="promocoes-grid" id="promocoes-grid">
+      <div class="promo-vazia">
+        <span style="font-size:2rem;display:block;margin-bottom:0.75rem;opacity:0.3;">🍺</span>
+        Nenhuma promoção cadastrada ainda.<br>
+        <span style="font-size:0.8rem;opacity:0.6;">Configure no painel admin.</span>
+      </div>
+    </div>
+    <div style="text-align:center;" id="cardapio-btn-wrap" style="display:none;"></div>
+  </div>
+</section>
+
+<!-- FEEDBACK -->
+<section id="feedback" class="fade-in">
+  <div class="feedback-wrap">
+    <div style="text-align:center;margin-bottom:2.5rem;">
+      <div class="section-label">Sua opinião importa</div>
+      <h2 class="section-titulo">DEIXE SEU <span>FEEDBACK</span></h2>
+      <div class="divider" style="margin:0.75rem auto 0;"></div>
+    </div>
+
+    <div class="feedback-form">
+      <div class="feedback-estrelas" id="feedbackEstrelas">
+        <span class="estrela" data-val="1" onclick="setEstrela(1)">⭐</span>
+        <span class="estrela" data-val="2" onclick="setEstrela(2)">⭐</span>
+        <span class="estrela" data-val="3" onclick="setEstrela(3)">⭐</span>
+        <span class="estrela" data-val="4" onclick="setEstrela(4)">⭐</span>
+        <span class="estrela" data-val="5" onclick="setEstrela(5)">⭐</span>
+      </div>
+      <input class="feedback-nome" id="feedbackNome" type="text" placeholder="Seu nome (opcional)">
+      <textarea class="feedback-input" id="feedbackTxt" placeholder="O que achou da experiência? Sugestões para o estabelecimento..."></textarea>
+      <button class="btn-feedback" onclick="enviarFeedback()">ENVIAR AVALIAÇÃO</button>
+    </div>
+
+    <div class="feedback-lista" id="feedbackLista"></div>
+  </div>
+</section>
+
 <!-- RODAPÉ -->
 <footer>
-  <span class="footer-logo">COPA<span>26</span></span>
-  <div class="footer-sub">Revista Digital Oficial da Copa do Mundo FIFA 2026</div>
+  <span class="footer-logo">FAN<span>ZONE</span></span>
+  <div class="footer-sub">Experiência Digital Copa do Mundo 2026</div>
   <ul class="footer-links">
     <li><a href="#inicio">Início</a></li>
     <li><a href="#sedes">Sedes</a></li>
     <li><a href="#grupos">Grupos</a></li>
     <li><a href="#selecoes">Seleções</a></li>
-    <li><a href="#continentes">Continentes</a></li>
-    <li><a href="#informacoes">Informações</a></li>
+    <li><a href="#craques">Craques</a></li>
+    <li><a href="#historia">História</a></li>
+    <li><a href="#promocoes">Promoções</a></li>
+    <li><a href="#feedback">Feedback</a></li>
   </ul>
   <p class="footer-copy">Copa do Mundo FIFA 2026 · EUA · México · Canadá · 11 Jun – 19 Jul 2026</p>
 </footer>
@@ -2416,7 +2923,7 @@ function renderGrupos() {
   GRUPOS.forEach(g => {
     slidesHtml += `<div class="grupo-slide">
       <div class="grupo-bloco${g.brasil?' brasil-grupo':''}">
-        <div class="grupo-bloco-header">
+        <div class="grupo-bloco-header" data-letra="${g.letra}">
           <span class="grupo-bloco-letra">${g.letra}</span>
           <span class="grupo-bloco-titulo">GRUPO ${g.letra}${g.brasil?' — BRASIL 🇧🇷':''}</span>
         </div>
@@ -2615,6 +3122,617 @@ renderGrupos();
         ? 'var(--amarelo)' : '';
     });
   });
+
+  // ── SPLASH SCREEN ──
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('splash').classList.add('hide');
+    }, 2500);
+  });
+
+  // ── FEEDBACK ──
+  var feedbackNota = 0;
+  var feedbacks = [];
+  try { feedbacks = JSON.parse(localStorage.getItem('fanzone_feedbacks') || '[]'); } catch(e){}
+
+  function setEstrela(val) {
+    feedbackNota = val;
+    document.querySelectorAll('.estrela').forEach((el, i) => {
+      el.classList.toggle('ativa', i < val);
+    });
+  }
+
+  function enviarFeedback() {
+    const nome = document.getElementById('feedbackNome').value.trim() || 'Anônimo';
+    const txt  = document.getElementById('feedbackTxt').value.trim();
+    if (!txt) { alert('Escreva algo antes de enviar!'); return; }
+    if (!feedbackNota) { alert('Selecione uma nota de 1 a 5 estrelas!'); return; }
+
+    const fb = { nome, txt, nota: feedbackNota, data: new Date().toLocaleDateString('pt-BR') };
+    feedbacks.unshift(fb);
+    try { localStorage.setItem('fanzone_feedbacks', JSON.stringify(feedbacks.slice(0,50))); } catch(e){}
+
+    document.getElementById('feedbackNome').value = '';
+    document.getElementById('feedbackTxt').value  = '';
+    setEstrela(0);
+    feedbackNota = 0;
+    renderFeedbacks();
+  }
+
+  function renderFeedbacks() {
+    const lista = document.getElementById('feedbackLista');
+    if (!lista) return;
+    if (!feedbacks.length) { lista.innerHTML = ''; return; }
+    lista.innerHTML = feedbacks.slice(0, 10).map(fb => `
+      <div class="feedback-item">
+        <div class="feedback-item-header">
+          <span class="feedback-item-nome">${fb.nome}</span>
+          <span class="feedback-item-estrelas">${'⭐'.repeat(fb.nota)}</span>
+        </div>
+        <div class="feedback-item-txt">"${fb.txt}"</div>
+      </div>`).join('');
+  }
+  renderFeedbacks();
+
+  // ── PROMOÇÕES DO ADMIN ──
+  (function() {
+    const promos = CLIENTE && CLIENTE.promocoes;
+    const grid   = document.getElementById('promocoes-grid');
+    const btnWrap = document.getElementById('cardapio-btn-wrap');
+    if (!grid) return;
+
+    if (CLIENTE && CLIENTE.cardapioUrl) {
+      btnWrap.innerHTML = `<a href="${CLIENTE.cardapioUrl}" target="_blank" class="btn-cardapio">📋 Ver Cardápio Digital</a>`;
+      btnWrap.style.display = 'block';
+    }
+
+    if (promos && promos.length) {
+      grid.innerHTML = promos.map(p => `
+        <div class="promo-card">
+          ${p.badge ? `<div class="promo-badge-topo">${p.badge}</div>` : ''}
+          <span class="promo-emoji-wrap">${p.emoji || '🍺'}</span>
+          <div class="promo-body">
+            <div class="promo-titulo">${p.titulo}</div>
+            <div class="promo-desc">${p.desc}</div>
+            ${p.preco ? `<span class="promo-preco">${p.preco}</span>` : ''}
+            ${p.validade ? `<span class="promo-validade">Válido: ${p.validade}</span>` : ''}
+          </div>
+        </div>`).join('');
+    }
+  })();
+
+  // ── HISTÓRIA TIMELINE ANIMAÇÃO ──
+  const historiaObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.historia-item').forEach(el => historiaObserver.observe(el));
+
+</script>
+
+<!-- ══════════════════════════════════════
+     CHATBOT COPA 2026 — Powered by Claude
+     ══════════════════════════════════════ -->
+<style>
+  /* BOTÃO FLUTUANTE */
+  #chat-fab {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 9000;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: var(--amarelo);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5), 0 0 0 0 rgba(255,223,0,0.4);
+    animation: fabPulse 2.5s ease infinite;
+    transition: transform 0.2s;
+  }
+  #chat-fab:hover { transform: scale(1.1); }
+  #chat-fab svg { width: 26px; height: 26px; }
+  @keyframes fabPulse {
+    0%,100% { box-shadow: 0 4px 20px rgba(0,0,0,0.5), 0 0 0 0 rgba(255,223,0,0.4); }
+    50%      { box-shadow: 0 4px 20px rgba(0,0,0,0.5), 0 0 0 10px rgba(255,223,0,0); }
+  }
+  .chat-badge {
+    position: absolute;
+    top: -2px; right: -2px;
+    background: var(--verde);
+    color: #000;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 2px 5px;
+    border-radius: 10px;
+  }
+
+  /* JANELA DO CHAT */
+  #chat-window {
+    position: fixed;
+    bottom: 5.5rem;
+    right: 1.5rem;
+    z-index: 9000;
+    width: 360px;
+    max-height: 520px;
+    display: flex;
+    flex-direction: column;
+    background: #0f0f0f;
+    border: 1px solid rgba(255,223,0,0.25);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.7);
+    transform: scale(0.92) translateY(10px);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.25s cubic-bezier(0.4,0,0.2,1);
+    border-radius: 2px;
+  }
+  #chat-window.open {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  /* HEADER DO CHAT */
+  .chat-header {
+    background: linear-gradient(135deg, #1a1a00 0%, #0a0a0a 100%);
+    border-bottom: 1px solid rgba(255,223,0,0.2);
+    padding: 0.85rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+  }
+  .chat-avatar {
+    width: 36px; height: 36px;
+    background: var(--amarelo);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  .chat-header-info { flex: 1; }
+  .chat-header-nome {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.88rem; font-weight: 600;
+    color: #f5f5f5;
+    display: block;
+  }
+  .chat-header-status {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.62rem; letter-spacing: 1px;
+    color: var(--verde);
+    display: flex; align-items: center; gap: 4px;
+  }
+  .chat-header-status::before {
+    content: '';
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--verde);
+    box-shadow: 0 0 5px var(--verde);
+  }
+  .chat-close {
+    background: none; border: none;
+    color: #666; cursor: pointer; font-size: 1.1rem;
+    padding: 4px; transition: color 0.15s;
+  }
+  .chat-close:hover { color: var(--amarelo); }
+
+  /* MENSAGENS */
+  .chat-msgs {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    scrollbar-width: thin;
+    scrollbar-color: #222 transparent;
+  }
+  .msg {
+    display: flex;
+    gap: 0.5rem;
+    animation: msgIn 0.3s ease;
+  }
+  @keyframes msgIn { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
+  .msg.user { flex-direction: row-reverse; }
+  .msg-bubble {
+    max-width: 80%;
+    padding: 0.6rem 0.85rem;
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.82rem;
+    line-height: 1.55;
+    border-radius: 2px;
+  }
+  .msg.bot .msg-bubble {
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    color: #e0e0e0;
+    border-top-left-radius: 0;
+  }
+  .msg.user .msg-bubble {
+    background: rgba(255,223,0,0.12);
+    border: 1px solid rgba(255,223,0,0.25);
+    color: #f5f5f5;
+    border-top-right-radius: 0;
+  }
+  .msg-avatar {
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem; flex-shrink: 0; margin-top: 2px;
+  }
+  .msg.bot .msg-avatar { background: var(--amarelo); color: #000; }
+  .msg.user .msg-avatar { background: #333; color: #aaa; }
+
+  /* TYPING */
+  .typing-dots { display: flex; gap: 4px; align-items: center; padding: 4px 0; }
+  .typing-dots span {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #555; animation: typingDot 1.2s ease infinite;
+  }
+  .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+  .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes typingDot { 0%,60%,100%{opacity:0.3;transform:scale(1)} 30%{opacity:1;transform:scale(1.3)} }
+
+  /* SUGESTÕES */
+  .chat-sugestoes {
+    padding: 0 1rem 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    flex-shrink: 0;
+  }
+  .sugestao {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.5px;
+    padding: 4px 10px;
+    background: rgba(255,223,0,0.06);
+    border: 1px solid rgba(255,223,0,0.2);
+    color: #aaa;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .sugestao:hover { background: rgba(255,223,0,0.12); color: var(--amarelo); border-color: rgba(255,223,0,0.4); }
+
+  /* INPUT */
+  .chat-input-wrap {
+    padding: 0.75rem 1rem;
+    border-top: 1px solid #1a1a1a;
+    display: flex;
+    gap: 0.5rem;
+    flex-shrink: 0;
+    background: #0a0a0a;
+  }
+  #chatInput {
+    flex: 1;
+    background: #161616;
+    border: 1px solid #2a2a2a;
+    color: #e0e0e0;
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.82rem;
+    padding: 8px 12px;
+    outline: none;
+    transition: border 0.2s;
+    resize: none;
+    height: 38px;
+  }
+  #chatInput:focus { border-color: rgba(255,223,0,0.4); }
+  #chatInput::placeholder { color: #444; }
+  .chat-send {
+    background: var(--amarelo);
+    border: none;
+    width: 38px; height: 38px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.15s;
+    flex-shrink: 0;
+  }
+  .chat-send:hover { background: #ffe033; }
+  .chat-send:disabled { background: #333; cursor: not-allowed; }
+  .chat-send svg { width: 16px; height: 16px; }
+
+  /* CONFIG API KEY */
+  .chat-config {
+    padding: 1rem;
+    background: rgba(255,223,0,0.04);
+    border-bottom: 1px solid rgba(255,223,0,0.1);
+    display: none;
+    flex-shrink: 0;
+  }
+  .chat-config.show { display: block; }
+  .chat-config label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.6rem; letter-spacing: 2px;
+    text-transform: uppercase; color: #666;
+    display: block; margin-bottom: 4px;
+  }
+  .chat-config input {
+    width: 100%; background: #0a0a0a;
+    border: 1px solid #2a2a2a; color: #e0e0e0;
+    font-family: monospace; font-size: 0.72rem;
+    padding: 6px 8px; outline: none;
+  }
+  .chat-config input:focus { border-color: rgba(255,223,0,0.3); }
+  .chat-config-hint {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.62rem; color: #555;
+    margin-top: 4px; line-height: 1.5;
+  }
+  .chat-config-hint a { color: var(--amarelo); text-decoration: none; }
+  .btn-salvar-key {
+    margin-top: 0.5rem; width: 100%;
+    background: var(--amarelo); color: #000;
+    border: none; padding: 7px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 1px; cursor: pointer;
+  }
+
+  @media (max-width: 420px) {
+    #chat-window { width: calc(100vw - 2rem); right: 1rem; }
+    #chat-fab { bottom: 1rem; right: 1rem; }
+  }
+</style>
+
+<!-- BOTÃO FLUTUANTE -->
+<button id="chat-fab" onclick="toggleChat()" aria-label="Abrir assistente">
+  <span class="chat-badge">IA</span>
+  <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+  </svg>
+</button>
+
+<!-- JANELA DO CHAT -->
+<div id="chat-window">
+  <div class="chat-header">
+    <div class="chat-avatar">🏆</div>
+    <div class="chat-header-info">
+      <span class="chat-header-nome">Assistente Copa 2026</span>
+      <span class="chat-header-status">Online agora</span>
+    </div>
+    <button class="chat-close" onclick="toggleChat()">✕</button>
+  </div>
+
+  <!-- CONFIG API KEY -->
+  <div class="chat-config" id="chatConfig">
+    <label>Sua chave da API Claude (Anthropic)</label>
+    <input type="password" id="apiKeyInput" placeholder="sk-ant-api03-..." oninput="salvarKey()">
+    <div class="chat-config-hint">
+      Obtenha sua chave gratuita em
+      <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a><br>
+      A chave fica salva só no seu navegador.
+    </div>
+  </div>
+
+  <!-- MENSAGENS -->
+  <div class="chat-msgs" id="chatMsgs"></div>
+
+  <!-- SUGESTÕES -->
+  <div class="chat-sugestoes" id="chatSugestoes"></div>
+
+  <!-- INPUT -->
+  <div class="chat-input-wrap">
+    <textarea id="chatInput" placeholder="Pergunte sobre a Copa..." rows="1"
+      onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();enviarMsg();}"></textarea>
+    <button class="chat-send" id="chatSend" onclick="enviarMsg()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<script>
+// ── CHATBOT CONFIG ──
+var chatAberto = false;
+var chatHistorico = [];
+var chatApiKey = localStorage.getItem('copa26_chat_key') || '';
+var chatTyping = false;
+
+var SYSTEM_PROMPT = `Você é o Assistente Oficial da Copa do Mundo 2026, integrado a uma revista digital exclusiva.
+
+SOBRE A COPA 2026:
+- Realizada em 11 de junho a 19 de julho de 2026
+- Países sede: Estados Unidos (sede principal), México e Canadá
+- 48 seleções participantes, 12 grupos (A ao L), 104 jogos
+- Abertura: 11 de junho, Estadio Azteca, Cidade do México
+- Final: 19 de julho, MetLife Stadium, Nova Jersey
+- Brasil no Grupo C com Marrocos, Escócia e Haiti
+- Argentina no Grupo J (campeã defensora)
+
+SOBRE A REVISTA:
+- Esta é uma revista digital personalizada para estabelecimentos
+- Criada especialmente para bares e restaurantes durante a Copa
+- O cliente acessa pelo QR code na mesa do estabelecimento
+- Contém grupos, jogos, seleções, jogadores e informações completas
+
+ESTABELECIMENTO ATUAL: ${CLIENTE.nome || 'Este estabelecimento'}
+${CLIENTE.slogan ? 'Slogan: ' + CLIENTE.slogan : ''}
+
+SUAS FUNÇÕES:
+1. Responder qualquer dúvida sobre a Copa 2026 (grupos, jogos, seleções, regras, curiosidades)
+2. Ajudar o cliente a navegar pela revista
+3. Se perguntado sobre como ter esta revista no próprio estabelecimento, explique que é um produto exclusivo e que o interessado pode entrar em contato
+
+PERSONALIDADE: Animado, apaixonado por futebol, conhece tudo sobre a Copa. Respostas curtas e diretas — máximo 3 parágrafos. Use emojis de futebol com moderação.
+
+IMPORTANTE: Responda SEMPRE em português brasileiro.`;
+
+var SUGESTOES_INICIAIS = [
+  'Quando o Brasil joga? 🇧🇷',
+  'Quais são os grupos?',
+  'Onde é a final?',
+  'Quem são os favoritos?',
+  'Quantas seleções participam?',
+  'Quando começa a Copa?'
+];
+
+// ── TOGGLE CHAT ──
+function toggleChat() {
+  chatAberto = !chatAberto;
+  var win = document.getElementById('chat-window');
+  win.classList.toggle('open', chatAberto);
+  if (chatAberto && chatHistorico.length === 0) iniciarChat();
+}
+
+// ── INICIAR CHAT ──
+function iniciarChat() {
+  var temKey = chatApiKey && chatApiKey.startsWith('sk-ant');
+  document.getElementById('chatConfig').classList.toggle('show', !temKey);
+  if (chatApiKey) document.getElementById('apiKeyInput').value = chatApiKey;
+
+  adicionarMsg('bot', 'Olá! 👋 Sou o assistente oficial da Copa 2026 aqui no **' + (CLIENTE.nome || 'estabelecimento') + '**.\n\nPosso responder qualquer dúvida sobre a Copa — grupos, jogos, seleções, jogadores e mais. O que você quer saber? ⚽🏆');
+  renderSugestoes(SUGESTOES_INICIAIS);
+}
+
+// ── SALVAR KEY ──
+function salvarKey() {
+  var v = document.getElementById('apiKeyInput').value.trim();
+  chatApiKey = v;
+  localStorage.setItem('copa26_chat_key', v);
+  if (v.startsWith('sk-ant')) {
+    document.getElementById('chatConfig').classList.remove('show');
+  }
+}
+
+// ── ADICIONAR MENSAGEM ──
+function adicionarMsg(tipo, texto, isTyping) {
+  var msgs = document.getElementById('chatMsgs');
+  var div = document.createElement('div');
+  div.className = 'msg ' + tipo;
+  if (isTyping) div.id = 'typing-indicator';
+
+  var avatar = tipo === 'bot' ? '🏆' : '👤';
+  var conteudo = isTyping
+    ? '<div class="typing-dots"><span></span><span></span><span></span></div>'
+    : formatarTexto(texto);
+
+  div.innerHTML =
+    '<div class="msg-avatar">' + avatar + '</div>' +
+    '<div class="msg-bubble">' + conteudo + '</div>';
+
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+  return div;
+}
+
+function formatarTexto(txt) {
+  return txt
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\n/g, '<br>');
+}
+
+// ── RENDER SUGESTÕES ──
+function renderSugestoes(lista) {
+  var el = document.getElementById('chatSugestoes');
+  el.innerHTML = lista.map(function(s) {
+    return '<button class="sugestao" onclick="usarSugestao(\'' + s.replace(/'/g,"\\'") + '\')">' + s + '</button>';
+  }).join('');
+}
+
+function usarSugestao(txt) {
+  document.getElementById('chatInput').value = txt;
+  document.getElementById('chatSugestoes').innerHTML = '';
+  enviarMsg();
+}
+
+// ── ENVIAR MENSAGEM ──
+async function enviarMsg() {
+  var input = document.getElementById('chatInput');
+  var txt = input.value.trim();
+  if (!txt || chatTyping) return;
+
+  // Verifica se tem API key
+  if (!chatApiKey || !chatApiKey.startsWith('sk-ant')) {
+    document.getElementById('chatConfig').classList.add('show');
+    document.getElementById('apiKeyInput').focus();
+    adicionarMsg('bot', 'Para usar o assistente, insira sua chave da API Claude acima. É gratuito para criar em console.anthropic.com ⚡');
+    return;
+  }
+
+  input.value = '';
+  document.getElementById('chatSugestoes').innerHTML = '';
+  adicionarMsg('user', txt);
+  chatHistorico.push({ role: 'user', content: txt });
+
+  // Typing indicator
+  chatTyping = true;
+  document.getElementById('chatSend').disabled = true;
+  var typingDiv = adicionarMsg('bot', '', true);
+
+  try {
+    var response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': chatApiKey,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true'
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 600,
+        system: SYSTEM_PROMPT,
+        messages: chatHistorico
+      })
+    });
+
+    if (!response.ok) {
+      var err = await response.json();
+      throw new Error(err.error && err.error.message ? err.error.message : 'Erro na API');
+    }
+
+    var data = await response.json();
+    var resposta = data.content[0].text;
+    chatHistorico.push({ role: 'assistant', content: resposta });
+
+    // Remove typing e adiciona resposta
+    typingDiv.remove();
+    adicionarMsg('bot', resposta);
+
+    // Sugestões de follow-up baseadas no contexto
+    var followups = gerarFollowups(txt);
+    if (followups.length) renderSugestoes(followups);
+
+  } catch(e) {
+    typingDiv.remove();
+    var msg = e.message.includes('401') || e.message.includes('authentication')
+      ? 'Chave de API inválida. Verifique e tente novamente.'
+      : 'Ops! Tive um problema: ' + e.message + '. Tente novamente.';
+    adicionarMsg('bot', msg);
+  }
+
+  chatTyping = false;
+  document.getElementById('chatSend').disabled = false;
+  input.focus();
+}
+
+// ── SUGESTÕES CONTEXTUAIS ──
+function gerarFollowups(pergunta) {
+  var p = pergunta.toLowerCase();
+  if (p.includes('brasil') || p.includes('grupo c')) {
+    return ['Quem são os jogadores do Brasil? 🇧🇷', 'Quando é o primeiro jogo?', 'O Brasil pode ser campeão?'];
+  }
+  if (p.includes('grupo') || p.includes('classificação')) {
+    return ['Como funciona o mata-mata?', 'Quantos times classificam?', 'Quando começa o mata-mata?'];
+  }
+  if (p.includes('final') || p.includes('campeão') || p.includes('favorit')) {
+    return ['Onde é a final?', 'Quem ganhou a última Copa?', 'Qual a data da final?'];
+  }
+  if (p.includes('jog') || p.includes('placar') || p.includes('result')) {
+    return ['Como ver os grupos completos?', 'Quais são as datas dos jogos?', 'Como funciona o chaveamento?'];
+  }
+  return ['Me fala sobre os grupos 📊', 'Quais seleções são favoritas? 🏆', 'Como funciona o formato da Copa?'];
+}
+
+// Init
+if (chatApiKey) document.getElementById('apiKeyInput') && (document.getElementById('apiKeyInput').value = chatApiKey);
 </script>
 </body>
 </html>
